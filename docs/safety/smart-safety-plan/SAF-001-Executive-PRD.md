@@ -107,3 +107,9 @@ Every named participant needs access to the applicable Safety Plan and an attrib
 A single-person task is supported. Whether acknowledgments from every named participant are prerequisites to initial Start Work, and whether an already-running task is re-gated, remain explicit Safety Authority decisions. Historic FabPilot rulings are candidates, not automatically adopted into FabOps-Green. Outstanding acknowledgments are visible during preparation and shift handover.
 
 **Traceability:** SAF-REQ-017, SAF-REQ-030; business rules BR-058–BR-065; [acknowledgment workflow](SAF-001-User-Workflows.md).
+
+## Confirmed v0 product direction (14 October 2026)
+
+The Product Owner confirmed eight decisions: (1) an approved and configurable baseline of twelve screening questions; (2) severity 1–3 × likelihood 1–4 with maximum-risk roll-up and SRB threshold 6; (3) globally governed standards with approved site/customer/legal/equipment applicability; (4) SRB, PTW and LOTO as separate integrated workflows; (5) eligible preparation/submission with governed approvals and individual acknowledgments; (6) Action Lead reassessment discretion within mandatory escalation rules; (7) standard attributable audit history; and (8) standard functional-testing and Product Owner acceptance for software release.
+
+The [Decision Register](02-decision-register.md) is the single authoritative record of these selections and their remaining safety-policy conditions. Product direction confirmation is **not** Safety Authority sign-off. Operational release must still satisfy applicable legal, site, and verified physical-safety requirements.
