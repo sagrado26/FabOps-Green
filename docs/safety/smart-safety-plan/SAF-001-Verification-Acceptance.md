@@ -33,3 +33,18 @@ Record build/reference, scenario inputs, applicable catalogue/risk version, acto
 6. Independent release authority accepts evidence and scope.
 
 **Current conclusion:** Documentation draft prepared; no executed evidence, legal compliance finding, qualified field verification or operational release approval.
+
+## Product decision acceptance matrix
+
+| Decision | Additional test coverage |
+|---|---|
+| SAF-DEC-001 | 12 approved questions, versioned publication, conditional mappings |
+| SAF-DEC-002 | Severity 1–3 × likelihood 1–4, maximum roll-up, invalid risk, SRB ≥6 |
+| SAF-DEC-003 | Global/local standards applicability and precedence |
+| SAF-DEC-004 | Independent SRB/PTW/LOTO states and transitions |
+| SAF-DEC-005 | Eligibility, approvals, individual acknowledgment and solo/late joining |
+| SAF-DEC-006 | Action Lead judgment recorded and escalation overrides |
+| SAF-DEC-007 | Attributable standard audit and applicable retention obligations |
+| SAF-DEC-008 | Functional test evidence and Product Owner software acceptance; applicable legal/EHS duties separately verified |
+
+All scenarios remain **unexecuted** and require approved expected outcomes for safety-sensitive branches.

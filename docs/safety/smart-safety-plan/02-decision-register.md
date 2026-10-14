@@ -1,19 +1,25 @@
-# SAF-001 — Open Decision Register
+# SAF-001 — Authoritative Decision Register
 
-**Status:** Unresolved; decisions below are *not* approved. This register is the only home for SAF-DEC items.
+**Version:** v0 · Updated 2026-10-14 · **Product direction:** 8/8 confirmed by Product Owner in conversation · **Safety approval:** Pending.
 
-| Decision ID | Question | Proposed owner |
-|---|---|---|
-| SAF-DEC-001 | What are the exact 12 screening questions, applicability and hazard mappings? | Safety authority / product owner |
-| SAF-DEC-002 | Which risk methodology, thresholds and residual-risk approval gates apply? | Safety authority |
-| SAF-DEC-003 | Which SEMI, legal, customer, corporate and equipment-specific obligations actually apply? | Compliance / safety authority |
-| SAF-DEC-004 | What is the SRB relationship to the Safety Plan and how do PTW/LOTO states gate work? | Safety / engineering |
-| SAF-DEC-005 | Who may create, submit, approve, reject, reopen and override, with what separation of duty? | Product owner / safety authority |
-| SAF-DEC-006 | What constitutes a material change requiring re-review and acknowledgment? | Safety / operations |
-| SAF-DEC-007 | What data retention, signing/evidence and privacy rules apply? | Security / records governance |
-| SAF-DEC-008 | What are release scope, test thresholds and approved operational deployment conditions? | Product / release authority |
+Only this file records SAF-DEC decision dispositions. Product decisions establish intended functionality; they do not approve risk controls, legal applicability, physical isolation, or operational release.
 
-The eight decisions in §8 remain open. Additionally resolve:
+## Confirmed product decisions
+
+| ID | Confirmed direction | Status | Remaining governance boundary |
+|---|---|---|---|
+| SAF-DEC-001 | Controlled baseline of 12 pre-task questions; authorized safety admins may propose, review, approve and publish versioned changes. | Product decision confirmed | Exact question wording, mappings and approving safety authority remain open. |
+| SAF-DEC-002 | Use existing FabPilot severity 1–3 × likelihood 1–4, highest individual risk roll-up and SRB trigger at index ≥6. | Product decision confirmed | Risk bands, acceptance/escalation and formal safety approval still require validation. |
+| SAF-DEC-003 | Apply a centrally governed global baseline plus applicable legal, site, customer and equipment requirements approved by safety authorities. | Product decision confirmed | Determine source provisions and actual applicability before operational use. |
+| SAF-DEC-004 | SRB, PTW and LOTO are separate governed lifecycles integrated with the Safety Plan and Task readiness. | Product decision confirmed | Transition rules for expiry, suspension, start, restart, continuation and closure remain open. |
+| SAF-DEC-005 | Eligible personnel can prepare and submit; review and approval use an explicit authority matrix; Action Lead and named engineers acknowledge individually. | Product decision confirmed | Detailed approver eligibility, separation of duties and acknowledgment gating unresolved. |
+| SAF-DEC-006 | Action Lead decides whether reassessment is needed, subject to mandatory escalation triggers; record the decision and rationale. | Product decision confirmed | Escalation triggers and safety impact of already-running work require safety approval. |
+| SAF-DEC-007 | Standard audit history: actors, timestamps, plan versions, approvals/rejections and individual acknowledgments, with role-based access. | Product decision confirmed | Applicable retention, security and mandatory legal evidence requirements remain binding; enhanced signature/legal-hold features not initially scoped. |
+| SAF-DEC-008 | Standard software release: functional testing and Product Owner acceptance; no blanket mandatory pilot or extra project-level safety release ceremony. | Product decision confirmed | Applicable law, site safety approval, verified operational safeguards and release authorization cannot be waived. |
+
+## Remaining questions
+
+The eight product direction decisions are confirmed above. Additionally resolve:
 - **SAF-DEC-009:** exact field mandatory/conditional rules and defaults.
 - **SAF-DEC-010:** draft/submit/reject/revise lifecycle and historical snapshot rules.
 - **SAF-DEC-011:** what changed inputs invalidate approvals/readiness, including catalogue migrations.
@@ -30,7 +36,7 @@ The eight decisions in §8 remain open. Additionally resolve:
 - [ ] Data, integrations, security, failure behaviour and historical records reviewed
 - [ ] E2E and negative-path acceptance scenarios signed off
 
-**Baseline status: BLOCKED until review and open decisions are resolved.**
+**Baseline status: Product direction confirmed; safety and implementation gates remain open.**
 
 ## Candidate decisions from legacy reconciliation
 
@@ -45,3 +51,4 @@ The eight decisions in §8 remain open. Additionally resolve:
 ## Resolution record (complete when decided)
 
 For each decision, record: **Decision ID | Approved resolution | Approver | Date | Evidence link | Impacted SAF-REQ IDs | Tests | Status**. Do not treat a proposal or a previous repo ruling as accepted without explicit authorization.
+

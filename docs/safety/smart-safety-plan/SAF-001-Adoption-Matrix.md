@@ -49,3 +49,7 @@ For each ADOPT item, record **approved disposition**, precise source revision, a
 - [ ] Obtain independent product, safety and technical approval
 
 **Disposition:** Matrix prepared; no individual safety rule is approved by this file. Documentation PR remains draft and no application code is changed.
+
+## Reconciliation with confirmed SAF-DEC-001–008
+
+The Product Owner has confirmed the eight decisions in the [Decision Register](02-decision-register.md). Corresponding historical models are now **selected product direction**, not automatically adopted operational safety rules. Individual ADOPT-01–12 dispositions remain pending source validation and relevant EHS/site/legal authority. Do not interpret standard software release as a waiver of required safety approval, or automatically change live permit/isolation behavior.
