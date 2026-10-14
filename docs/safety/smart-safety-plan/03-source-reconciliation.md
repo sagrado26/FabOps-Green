@@ -34,7 +34,7 @@
 
 ## Requirement changes incorporated into the PRD
 
-The following draft requirement IDs were preserved and consolidated into the single requirement table in [01-product-requirements.md](01-product-requirements.md): **SAF-REQ-021 through SAF-REQ-032**. They remain proposals until product and safety approval.
+The following draft requirement IDs were preserved and consolidated into the single requirement table in [Technical PRD §3](SAF-001-Technical-PRD.md#3-detailed-requirement-register): **SAF-REQ-021 through SAF-REQ-032**. They remain proposals until product and safety approval.
 
 ## Specific safety-policy conflicts and boundaries
 
