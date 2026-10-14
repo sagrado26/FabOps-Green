@@ -41,3 +41,7 @@ Every approval gate must have actor, plan revision, authoritative inputs, releva
 The product direction is confirmed for SAF-DEC-001–008 in the [Decision Register](02-decision-register.md). Thus: initial twelve approved configurable questions; chosen severity/likelihood/max-risk model with SRB trigger ≥6; global-plus-local standards applicability; independent linked SRB/PTW/LOTO; open eligible preparation with governed approval and named acknowledgments; Action Lead change assessment subject to mandatory escalation; standard attributable audit; and standard tested Product Owner software acceptance.
 
 **Remaining safety-policy gates:** exact question mappings, formal risk acceptance, board/permit/isolation state transitions, acknowledgment start/restart thresholds, Action Lead mandatory escalations, record retention duties and legally required operational sign-off. No rule should be read to automatically re-gate active work or release physical isolation.
+
+## Confirmed product decisions and pending controls
+
+SAF-DEC-001–008 confirm the product baseline for screening, risk index, standards, independent SRB/PTW/LOTO, approval/acknowledgment, Action Lead reassessment, audit and software release. See the [Decision Register](02-decision-register.md) for authoritative wording. Safety-governed transition effects (especially permit expiry while running, isolation custody, start/restart gates and mandatory escalation) remain pending; **do not infer a blanket stop-work rule**.
