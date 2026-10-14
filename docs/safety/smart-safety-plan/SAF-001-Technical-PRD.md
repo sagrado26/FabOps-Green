@@ -142,3 +142,23 @@ The [Decision Register](02-decision-register.md) remains authoritative for unres
 **Candidate policy, not approved:** The Action Lead acknowledges; a one-person task may satisfy its acknowledgment requirement with the Action Lead alone. Other named engineers add personal acknowledgments. Do not automatically stop or re-gate work already in progress simply on acknowledgment changes. The definitive start/restart gate, acknowledgment minimum, participant removals and escalation rules require Safety Authority authorization.
 
 **Acceptance scenarios:** solo engineer; lead plus participants; late joiner; unacknowledged participant; rejected/withdrawn acknowledgment; material revision; handover; already-running task; unauthorized on-behalf-of action; stale acknowledgment against a superseded revision.
+
+## 10. Confirmed product directions and implementation boundaries
+
+SAF-DEC-001: Twelve controlled pre-task questions form the initial baseline; publish authorized versioned changes only. No unapproved catalogue entries are invented.
+
+SAF-DEC-002: The selected product model uses severity 1–3, likelihood 1–4, computed index = severity × likelihood, maximum individual-risk roll-up and SRB trigger at ≥6. Do not equate this product selection with approved site risk acceptance or override independent controls.
+
+SAF-DEC-003: Apply global governed standards plus applicable, authorized local/site/customer/equipment requirements; track the chosen provision and version per assessment.
+
+SAF-DEC-004: SRB, PTW and LOTO remain independent governed workflows; the Safety Plan references obligations and authoritative statuses. No generic auto-close or hard-stop-on-expiry is inferred.
+
+SAF-DEC-005: Eligible personnel may prepare/submit; governed approval follows an explicit matrix. Action Lead acknowledgment and each named engineer acknowledgment are distinct events from approval, toolbox talk and work permission.
+
+SAF-DEC-006: The Action Lead records a reassessment decision with a reason, but mandatory escalation triggers override discretionary decisions. Exact triggers require approval.
+
+SAF-DEC-007: Maintain standard attributable revision, approval/rejection and acknowledgment history with role-based access. Any legal retention/record integrity obligation still applies; enhanced legal-hold/signature products are not first-release commitments.
+
+SAF-DEC-008: Software release acceptance requires functional testing and Product Owner acceptance. Site/EHS compliance and safety authorization remain separate non-waivable obligations where applicable. A mandatory site pilot is not part of the selected standard release model.
+
+See the [single decision register](02-decision-register.md) for outstanding choices and approval evidence.
