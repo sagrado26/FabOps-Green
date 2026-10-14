@@ -10,6 +10,7 @@
 - [Process & Business Rules](SAF-001-Process-Business-Rules.md) — cross-functional gates and exceptions.
 - [Data, Integrations & Security](SAF-001-Data-Integration-Security.md) — logical records and trusted interfaces.
 - [Verification & Acceptance](SAF-001-Verification-Acceptance.md) — scenarios and proposed release evidence.
+- [Requirements Review v0](SAF-001-Requirements-Review-v0.md) — findings, blockers and corrective action gates.
 - [Completion & Approval Register](SAF-001-Completion-Register.md) — coverage and outstanding sign-offs.
 - [Decision Register](02-decision-register.md) — unresolved decisions (working register; not approved).
 - [Source Reconciliation](03-source-reconciliation.md) — historical investigation retained for evidence only.
