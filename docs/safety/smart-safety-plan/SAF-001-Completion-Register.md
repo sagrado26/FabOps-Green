@@ -41,3 +41,7 @@ Do not report the package as fully approved, legally compliant or ready for prod
 ## Historical decision adoption
 
 [SAF-001 Adoption Matrix](SAF-001-Adoption-Matrix.md) now lists candidate decisions, discrepancies and approval gates. All entries remain pending; documentation preparation is not safety sign-off.
+
+## Product decisions checkpoint — 14 October 2026
+
+SAF-DEC-001–008: **8 of 8 product direction decisions confirmed** in the [Decision Register](02-decision-register.md). Formal Safety Authority sign-off, exact question content/mappings, site applicability, risk acceptance, SRB/PTW/LOTO transition rules, required escalation and executed acceptance tests remain incomplete.
