@@ -17,3 +17,5 @@
 - [References](references/README.md) — archival material, not binding requirements.
 
 The v0 PRDs are newly written baseline proposals using only the repository-held reference material. Previous drafts and reconciliation notes do not confer authority on the new PRD. No safety approval or implementation authorization is implied.
+
+- [Adoption Matrix](SAF-001-Adoption-Matrix.md) — historical source decisions proposed for explicit greenfield approval.
