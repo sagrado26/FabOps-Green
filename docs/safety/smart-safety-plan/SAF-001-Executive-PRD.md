@@ -113,3 +113,9 @@ A single-person task is supported. Whether acknowledgments from every named part
 The Product Owner confirmed eight decisions: (1) an approved and configurable baseline of twelve screening questions; (2) severity 1–3 × likelihood 1–4 with maximum-risk roll-up and SRB threshold 6; (3) globally governed standards with approved site/customer/legal/equipment applicability; (4) SRB, PTW and LOTO as separate integrated workflows; (5) eligible preparation/submission with governed approvals and individual acknowledgments; (6) Action Lead reassessment discretion within mandatory escalation rules; (7) standard attributable audit history; and (8) standard functional-testing and Product Owner acceptance for software release.
 
 The [Decision Register](02-decision-register.md) is the single authoritative record of these selections and their remaining safety-policy conditions. Product direction confirmation is **not** Safety Authority sign-off. Operational release must still satisfy applicable legal, site, and verified physical-safety requirements.
+
+## Confirmed v0 product baseline (14 October 2026)
+
+The Product Owner selected: (SAF-DEC-001) controlled configurable baseline of 12 screening questions; (002) severity 1–3 × likelihood 1–4, maximum-risk roll-up and SRB threshold ≥6; (003) global standards with governed site/customer/legal/equipment applicability; (004) independent SRB/PTW/LOTO workflows integrated with plan readiness; (005) eligible preparation/submission and governed approval with individual lead/engineer acknowledgments; (006) Action Lead reassessment decisions subject to mandatory escalation; (007) standard audit history; (008) standard functional-tested software release with Product Owner acceptance.
+
+These are product decisions, **not** Safety Authority approval. The [Decision Register](02-decision-register.md) identifies outstanding operational and legal duties.
