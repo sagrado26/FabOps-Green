@@ -37,3 +37,7 @@
 | QA / operational release | TBD | TBD | Pending | — |
 
 Do not report the package as fully approved, legally compliant or ready for production while these gates are open.
+
+## Historical decision adoption
+
+[SAF-001 Adoption Matrix](SAF-001-Adoption-Matrix.md) now lists candidate decisions, discrepancies and approval gates. All entries remain pending; documentation preparation is not safety sign-off.
