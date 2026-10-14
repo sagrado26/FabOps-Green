@@ -162,3 +162,7 @@ SAF-DEC-007: Maintain standard attributable revision, approval/rejection and ack
 SAF-DEC-008: Software release acceptance requires functional testing and Product Owner acceptance. Site/EHS compliance and safety authorization remain separate non-waivable obligations where applicable. A mandatory site pilot is not part of the selected standard release model.
 
 See the [single decision register](02-decision-register.md) for outstanding choices and approval evidence.
+
+## 10. Confirmed product-direction constraints
+
+SAF-DEC-001–008 are confirmed in the [Decision Register](02-decision-register.md). Technical realization must support controlled/versioned 12-question baseline; system-calculated severity 1–3 × likelihood 1–4, highest-risk roll-up and SRB ≥6; global/local obligation applicability; independent SRB/PTW/LOTO authority; eligible preparation and role-governed approval with individual acknowledgments; Action Lead impact decision with mandatory escalations; standard actor/revision audit history; and functional testing/Product Owner software acceptance. No extra site pilot is required as a blanket product-release gate, but applicable EHS/legal/physical safety duties are not waived. Exact escalations, transition rules, authoritative catalogues and retention schedule remain unresolved.
