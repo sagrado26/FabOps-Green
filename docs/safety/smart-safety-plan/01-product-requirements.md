@@ -1,13 +1,11 @@
-# SAF-001 — Product Requirements (Document Index)
+# SAF-001 — Smart Safety Plan documentation
 
-**Current controlled drafts:** Version 0.5 · Not approved
+**Current baseline proposal: PRD v0 (Draft)**
 
-The earlier combined v0.4 requirements were reorganized without intentionally changing requirement IDs or accepting new safety rules.
+- [Executive PRD v0](SAF-001-Executive-PRD.md) — purpose, outcomes, scope, users, capabilities and governance.
+- [Technical PRD v0](SAF-001-Technical-PRD.md) — functional requirements SAF-REQ-001–032, workflow, data needs, integration boundaries and verification.
+- [Decision Register](02-decision-register.md) — unresolved decisions (working register; not approved).
+- [Source Reconciliation](03-source-reconciliation.md) — historical investigation retained for evidence only.
+- [References](references/README.md) — archival material, not binding requirements.
 
-- [Executive PRD](SAF-001-Executive-PRD.md) — purpose, users, product outcomes, scope, principal decisions and approval.
-- [Technical PRD](SAF-001-Technical-PRD.md) — all SAF-REQ-001 to SAF-REQ-032 details, fields, conditional behaviors, lifecycle, interfaces and acceptance evidence.
-- [Decision Register](02-decision-register.md) — unresolved policy questions and approval decisions.
-- [Source Reconciliation](03-source-reconciliation.md) — historical FabPilot evidence; not binding greenfield authority.
-- [Reference sources](references/README.md) — archival comparison and owner-ruling records.
-
-**Source of truth:** The Executive PRD summarizes outcomes; the Technical PRD provides requirement detail. Neither is approved for production safety use. The original ISP specification has not yet been fully reconciled.
+The v0 PRDs are newly written baseline proposals using only the repository-held reference material. Previous drafts and reconciliation notes do not confer authority on the new PRD. No safety approval or implementation authorization is implied.
