@@ -21,3 +21,5 @@ The v0 PRDs are newly written baseline proposals using only the repository-held 
 - [Adoption Matrix](SAF-001-Adoption-Matrix.md) — historical source decisions proposed for explicit greenfield approval.
 
 **Controlled rule inventory:** [BR-001–065 and SAF-REQ traceability](SAF-001-Business-Rule-Traceability.md) (Draft; no approved safety policy implied).
+
+- [Hazard Identification Catalogue v0](SAF-001-Hazard-Catalogue.md) — 12-slot framework, taxonomy, mappings, exceptions and approval gates.
