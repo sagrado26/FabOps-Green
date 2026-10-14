@@ -121,3 +121,5 @@ The [Decision Register](02-decision-register.md) remains authoritative for unres
 
 **Ready for implementation** only after affected requirements and acceptance criteria are reviewed and authorized. **Ready for operational use** only after applicable safety governance, validation and deployment checks are approved.
 
+
+**User workflows and swimlanes:** [SAF-001 User Workflows](SAF-001-User-Workflows.md) — plan creation, review, readiness, handover and controlled template publication.
