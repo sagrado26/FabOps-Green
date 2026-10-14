@@ -99,3 +99,11 @@ Open matters: definitive screening catalogue; risk methodology; approval/acknowl
 
 
 **User workflows and swimlanes:** [SAF-001 User Workflows](SAF-001-User-Workflows.md) — plan creation, review, readiness, handover and controlled template publication.
+
+## Safety Plan acknowledgment — core v0 capability
+
+Every named participant needs access to the applicable Safety Plan and an attributable way to confirm review and understanding. The **Action Lead acknowledgment** and **named engineer acknowledgments** are recorded separately from Safety Plan approval, toolbox-talk attendance, and permission to start work.
+
+A single-person task is supported. Whether acknowledgments from every named participant are prerequisites to initial Start Work, and whether an already-running task is re-gated, remain explicit Safety Authority decisions. Historic FabPilot rulings are candidates, not automatically adopted into FabOps-Green. Outstanding acknowledgments are visible during preparation and shift handover.
+
+**Traceability:** SAF-REQ-017, SAF-REQ-030; business rules BR-058–BR-065; [acknowledgment workflow](SAF-001-User-Workflows.md).
