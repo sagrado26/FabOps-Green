@@ -33,3 +33,5 @@ Missing or unknown question/control status cannot be represented as No or verifi
 ## Acceptance traceability
 
 Every approval gate must have actor, plan revision, authoritative inputs, relevant requirement IDs, applicable decision ID and negative-path tests. Approval decision and test results must be retained. See [Verification](SAF-001-Verification-Acceptance.md).
+
+**Controlled rule inventory:** [BR-001–065 and SAF-REQ traceability](SAF-001-Business-Rule-Traceability.md) (Draft; no approved safety policy implied).
