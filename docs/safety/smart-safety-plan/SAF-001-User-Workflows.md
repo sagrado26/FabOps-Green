@@ -187,3 +187,7 @@ sequenceDiagram
 **Decision to approve:** exact minimum for one-person and multi-person tasks, late participants, reacknowledgment on material revision, and treatment of already-running work. Historical one-person and in-progress rulings remain candidates, not automatically binding.
 
 **Linked requirements:** SAF-REQ-017, SAF-REQ-030; BR-058–BR-065.
+
+## Product decision alignment — v0
+
+The four-stage journey uses a governed configurable 12-question baseline and the selected maximum-risk scoring model (SAF-DEC-001–002). SRB/PTW/LOTO remain independent linked workflows (004); eligible people prepare/submit and separately approved and acknowledged outcomes are displayed (005). On changed conditions the Action Lead records reassessment judgment, subject to mandatory escalation (006). Readiness and already-running-work rules still require approval. Refer to the [Decision Register](02-decision-register.md).
