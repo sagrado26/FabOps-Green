@@ -157,3 +157,33 @@ sequenceDiagram
 - All exception branches receive corresponding acceptance scenarios.
 
 **Review gate:** Approve these journeys only after the exact safety policy, role matrix, source questions, risk methodology and SRB/PTW/LOTO interaction rules are resolved.
+
+## 8. Swimlane — participant Safety Plan acknowledgment (proposed)
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant L as Action Lead
+  participant S as Smart Safety Plan
+  participant E as Named Engineer
+  participant G as Governed Readiness
+  L->>S: Confirm named participants and applicable plan revision
+  S-->>E: Make plan and identified hazards / controls available
+  E->>S: Open and review applicable revision
+  E->>S: Record own acknowledgment
+  S->>S: Store actor, revision and timestamp
+  S-->>L: Show acknowledgment status and outstanding people
+  L->>S: Record Action Lead acknowledgment
+  S->>G: Provide current acknowledgment evidence
+  G->>G: Apply approved transition-specific policy
+  alt Acknowledgments required for this transition missing
+    G-->>L: Show pending acknowledgments / restriction
+  else Requirement satisfied or not applicable
+    G-->>L: Show acknowledgment condition satisfied
+  end
+  Note over L,G: Acknowledgment is separate from plan approval, toolbox talk and start-work authority.
+```
+
+**Decision to approve:** exact minimum for one-person and multi-person tasks, late participants, reacknowledgment on material revision, and treatment of already-running work. Historical one-person and in-progress rulings remain candidates, not automatically binding.
+
+**Linked requirements:** SAF-REQ-017, SAF-REQ-030; BR-058–BR-065.
