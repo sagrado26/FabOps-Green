@@ -1,90 +1,99 @@
-# SAF-001 — Smart Safety Plan: Executive PRD
+# SAF-001 — Smart Safety Plan
+## Product Requirements Document | Executive v0
 
-| Field | Value |
+| Document control | |
 |---|---|
-| Product | FabPilot / FabOps-Green |
+| Product | FabPilot |
 | Function | Safety |
-| Version | 0.5 — Draft |
-| Date | 14 October 2026 |
-| Status | **Not approved for implementation or safety use** |
-| Accountable owner and approvers | To be assigned |
-| Detailed specification | [SAF-001 Technical PRD](SAF-001-Technical-PRD.md) |
+| Feature | SAF-001 — Smart Safety Plan |
+| Version | v0 (initial baseline proposal) |
+| Status | Draft — pending product and safety approval |
+| Owner | Product Owner (to assign) |
+| Reviewers | Safety, Operations, Engineering (to assign) |
+| Detailed companion | [Technical PRD v0](SAF-001-Technical-PRD.md) |
 
-## Executive summary
+## 1. Product purpose
 
-The Smart Safety Plan embeds hazard identification, risk assessment and safety planning into a maintenance task. Engineers should be able to prepare work efficiently while seeing relevant hazards, baseline controls and outstanding obligations in context. Safety reviewers should have a clear record of what was assessed, what controls are required and which decisions remain unresolved.
+FabPilot Smart Safety Plan enables engineers to prepare, assess, review, and maintain task-specific safety planning within the maintenance workflow. It connects work scope, hazard identification, risk assessment, required controls and authorized review in one coherent experience.
 
-The Safety Plan is a **digital planning and authorization workflow**, not proof that physical safeguards, equipment isolation or permits have been implemented.
+The plan helps people make informed decisions; it does not itself establish that physical controls have been applied.
 
-## Problem and business outcomes
+## 2. Problem and outcomes
 
-- Reduce duplicated entry and unnecessary administration during maintenance preparation.
-- Improve consistency of hazard identification and task-specific mitigation.
-- Make safety obligations visible to the people carrying out work.
-- Maintain traceable reviews, approvals and revisions when work conditions change.
-- Support multi-person and multi-shift maintenance without losing safety context.
-- Connect safety readiness to task execution without creating separate competing workflows.
+Maintenance tasks involve equipment hazards, changing work conditions, multiple participants and safety obligations. Separate forms and disconnected status updates can cause duplicated entry, lost context and uncertainty about current requirements.
 
-Success measures will include preparation and review effort, completeness and quality of risk assessments, rework after material changes, outstanding obligations, and blocked unsafe start attempts. Baselines and numerical targets are not yet approved.
+The product should:
+- reduce avoidable administrative entry without reducing assessment quality;
+- provide relevant hazard and control guidance when the engineer needs it;
+- make incomplete actions and safety-related blockers understandable;
+- support reviews and revisions when work changes;
+- keep an intelligible history for subsequent shifts and audits.
 
-## Users and responsibilities
+## 3. Users
 
 | User | Primary need |
 |---|---|
-| Field Service Engineer | Create, save, complete and revise a plan |
-| Task Lead | Coordinate team participation and scope |
-| Safety Reviewer / Approver | Review risks and controls and record authorized decisions |
-| Operations | See readiness and scheduling implications |
-| Participating Engineer | Understand and acknowledge applicable plan and obligations |
-| Configuration Steward | Manage approved hazard questions and templates without rewriting prior decisions |
+| Field Service Engineer | Prepare and update the task Safety Plan |
+| Task Lead | Coordinate team awareness and task readiness |
+| Reviewer / authorized approver | Assess the submitted plan and record a decision |
+| Participating engineer | Understand hazards and obligations relevant to the assigned work |
+| Operations | View planning status and outstanding requirements |
+| Safety content administrator | Maintain controlled screening and hazard content |
 
-Precise role permissions and approval authority require formal definition.
+Role permissions and approval authority will be established in the supporting governance specification.
 
-## Four-stage experience
+## 4. Product scope
 
-1. **Task Details:** use the task, equipment, people and work context as the basis for planning; minimise re-entry.
-2. **Hazard Identification:** guide users through an intended **12-question screening experience**. Relevant responses reveal selectable hazards and concise contextual guidance. The exact approved questions and mappings remain to be established.
-3. **Risk Assessment:** carry selected hazards into a single governed risk-assessment process, including unwanted events, consequences, controls, mitigation and residual risk.
-4. **Review & Approval:** show a clear summary, outstanding obligations, approvals and the impact on task readiness.
+**Included:** one task-linked Safety Plan; draft and resume; hazard screening; selection of applicable hazards; initial and residual risk with task-specific controls; review and authorization; revisions; relevant readiness indications; participation/shift awareness; traceable records; connections to PTW, LOTO, SRB, PPE, Task Management and Materials when applicable.
 
-The experience should be compact, accessible and responsive, with critical safety information available at the point of work.
+**Outside this feature:** the independent administration of permits, physical isolation, equipment safeguards, training systems and enterprise-wide standards governance. The Safety Plan may depend on their statuses but does not replace those processes.
 
-## Core capabilities
+## 5. Four-stage experience
 
-| Capability | Expected outcome | Technical requirement references |
+| Stage | User objective | Expected product experience |
 |---|---|---|
-| Task-linked planning | One consistent create/edit/review journey tied to task and equipment | SAF-REQ-001–003, 020, 032 |
-| Hazard guidance | Contextual screening, approved questions, hazard selection and additional hazards | SAF-REQ-004–007, 021 |
-| Risk and controls | One controlled method for initial/residual risk and applicable obligations | SAF-REQ-008–009, 025, 029–030 |
-| Trusted review | Authorized submission, decisions, readiness and safe handling of changed conditions | SAF-REQ-010–015, 023, 027–028 |
-| Usability and collaboration | Accessible workflow, handover awareness, clear controlled icons | SAF-REQ-016–017, 031 |
-| Governed configuration | Versioned reusable templates, conditional forms and preserved answers | SAF-REQ-018, 022, 024, 026 |
-| Coordination | Auditable ACOS events and notifications | SAF-REQ-019 |
+| 1. Task Details | Confirm the work being planned | Relevant task, asset, people and work conditions appear with minimal re-entry |
+| 2. Hazard Identification | Identify applicable hazards | A compact screening form with the intended twelve pre-task questions; relevant answers reveal hazard choices and supporting guidance |
+| 3. Risk Assessment | Evaluate and mitigate risks | Selected hazards carry forward into an assessment of unwanted events, consequences, controls and residual risk |
+| 4. Review & Approval | Confirm completeness and obtain an authorized decision | The plan summary identifies unresolved items, linked safety requirements, review results and readiness implications |
 
-These reference IDs are **draft**, not signed-off mandatory controls. The [Technical PRD](SAF-001-Technical-PRD.md) holds the full requirements table and acceptance criteria.
+The exact twelve question texts, mappings and risk method must be controlled and approved before a live safety process relies on them.
 
-## Dependencies and boundaries
+## 6. Product capabilities
 
-The Safety Plan connects to Task Management, equipment, workforce and competence, SRB, PTW, LOTO, PPE, operations/passdown, materials, ACOS and records/audit. Detailed PTW, LOTO and SRB rules are governed separately; this feature must not assume digital approval alone is equivalent to verified physical safety.
-
-This PRD does not prescribe a technology stack, risk formula, exact legal applicability, equipment safety procedures or production-release authorization.
-
-## Open decisions and principal risks
-
-Before approval, decide the exact screening questions and hazard catalogue; risk methodology and thresholds; SRB, permit and isolation relationships; permissions and independent approvals; change/revision policy; records and retention; and the authority for reusable form publication.
-
-The largest risks are an unapproved hazard mapping, conflicting approval or permit rules, silently lost conditional answers, stale safety decisions, and an interface implying controls are physically verified when they are not.
-
-See the single [Decision Register](02-decision-register.md) and [Historical Source Reconciliation](03-source-reconciliation.md).
-
-## Acceptance and governance
-
-Acceptance requires product, technical and safety review; source-traced decisions; verified user journeys and negative scenarios; and an approved baseline. Implementation progress is not equivalent to safety authorization.
-
-Related GitHub issues: [FP-014](https://github.com/sagrado26/FabOps-Green/issues/14), [FP-015](https://github.com/sagrado26/FabOps-Green/issues/15), [FP-016](https://github.com/sagrado26/FabOps-Green/issues/16), [FP-017](https://github.com/sagrado26/FabOps-Green/issues/17).
-
-## Change history
-
-| Version | Date | Change |
+| ID | Capability | User outcome |
 |---|---|---|
-| 0.5 | 2026-10-14 | Executive summary established alongside the detailed Technical PRD; no approval claimed |
+| SAF-CAP-01 | Task context | A plan reflects the correct task and equipment |
+| SAF-CAP-02 | Draft management | Work can be paused and resumed without re-entry |
+| SAF-CAP-03 | Hazard identification | Relevant hazards can be identified consistently |
+| SAF-CAP-04 | Hazard guidance | Users understand likely events, outcomes and baseline controls |
+| SAF-CAP-05 | Risk assessment | Risks and proposed mitigations can be evaluated consistently |
+| SAF-CAP-06 | Safety obligations | Required PTW, LOTO, PPE and competency actions are visible |
+| SAF-CAP-07 | Review and approval | Decisions come from authorized reviewers and remain traceable |
+| SAF-CAP-08 | Readiness | Users understand whether further safety action is required before work |
+| SAF-CAP-09 | Reassessment | Relevant changes prompt appropriate review of the plan |
+| SAF-CAP-10 | Records | Past versions and decisions remain retrievable |
+| SAF-CAP-11 | Participation and passdown | Current safety information follows people and shifts |
+| SAF-CAP-12 | Controlled content | Approved templates and hazard content can be maintained |
+| SAF-CAP-13 | Connected operations | The plan appears naturally in the Task Workspace and can support governed ACOS coordination |
+
+## 7. Experience principles
+
+Safety before productivity; concise screens; progressive disclosure; one clear primary action; prominent unfinished safety obligations; accessible responsive layout; no duplicated assessment or approval path. Use the FabPilot primary colour `#0F238C` for ordinary interface styling while preserving distinct semantic safety states.
+
+## 8. Dependencies
+
+The plan depends on Task Management for task context, Equipment for asset context, Workforce for user eligibility, Safety subsystems for their independently verified obligations, Operations for handover, Materials for material-related hazards, and Platform/ACOS for records and change awareness.
+
+## 9. Success measures
+
+Measure preparation effort, completion quality, outstanding-control visibility, review turnaround, revisions after changed conditions, handover continuity and traceability. Targets and collection methods are set during business-case review; speed alone is not a safety-performance measure.
+
+## 10. Acceptance and decisions
+
+The v0 product baseline is accepted only when the Product Owner and designated safety authority approve the scope, the four-stage journey, key capabilities, and the boundaries between planning, approval and physical verification.
+
+Open matters: definitive screening catalogue; risk methodology; approval/acknowledgment responsibilities; when changes require reassessment; linked PTW/LOTO/SRB rules; retained records and site-specific obligations. Track outcomes in the [Decision Register](02-decision-register.md).
+
+**Detailed requirements and acceptance scenarios:** [Technical PRD v0](SAF-001-Technical-PRD.md). Neither document independently authorizes equipment maintenance.
+
