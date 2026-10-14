@@ -6,7 +6,7 @@
 | Function | Safety |
 | Feature | SAF-001 — Smart Safety Plan |
 | Document | 01 — Product Requirements |
-| Version | 0.1 |
+| Version | 0.2 |
 | Status | Draft — not approved |
 | Date | 2026-10-14 |
 | Owner / approver | To be appointed |
@@ -147,3 +147,135 @@ Requirements for responsiveness, availability, retention, recovery time, perform
 | Version | Date | Change |
 |---|---|---|
 | 0.1 | 2026-10-14 | Initial controlled requirements draft, pending reviews |
+| 0.2 | 2026-10-14 | Added detailed fields, journeys, negative cases, traceability and approval gates |
+
+## 11. Detailed field inventory (proposed; validate with product owner)
+
+Field classifications: **R** required before submission, **C** conditionally required, **A** automatically sourced where authoritative, **O** optional. Draft saves may be incomplete. Field-level truth sources and validation contracts are not yet approved.
+
+### Stage 1 — Task Details
+
+| Field | Class | Source / condition | Rule to verify |
+|---|---|---|---|
+| Task reference | R/A | Task Management | Immutable task association after submission, unless revision policy permits |
+| Equipment / asset ID | R/A | Equipment registry | Asset must exist and be accessible |
+| Work description / scope | R/A | Task | Show current scope and preserve assessed snapshot |
+| Work location | C/A | Task/equipment | Mandatory where location influences hazards |
+| Planned start/end | C/A | Scheduling | Timing changes evaluated for material impact |
+| Work category | R | Controlled work taxonomy TBD | Used only by approved rules |
+| Person responsible | R/A | Task/identity | Confirm role and eligibility |
+| Participants | C/A | Workforce | Changes feed competency/acknowledgment checks |
+| Equipment condition / energy state | C | Task and site verification | Never infer physical safe state from text alone |
+| Related work / concurrent operations | C | Operations | Escalate interaction hazards |
+| Attachments / work instructions | O | Controlled document store | References and versions retained |
+
+### Stage 2 — Hazard Identification
+
+| Field | Class | Rule to verify |
+|---|---|---|
+| Screening question ID, version and wording | R | Exactly 12 from approved versioned catalogue; source wording TBD |
+| Screening response | R | Yes, No, Unanswered distinguished; unanswered blocks submission |
+| Hazard selection for Yes | C | Select applicable controlled hazards; explicit none/unknown path requires review |
+| Hazard ID and catalogue revision | C/A | Preserve provenance even after later catalogue updates |
+| Unwanted event and consequence | C/A | Pre-populate from mapping; editable only according to governance |
+| Baseline controls and guidance | C/A | Display as unverified until independently confirmed |
+| Task-specific hazard | C | Authorized free-entry with justification and review |
+| Justification / applicability notes | C | Required for defined exceptions, overrides or uncertainty |
+| Supplemental evidence | O | Stored with author, time and linked plan revision |
+
+### Stage 3 — Risk Assessment
+
+| Field | Class | Rule to verify |
+|---|---|---|
+| Hazard and unwanted event | R/A | Retain link to selected hazard(s) and context |
+| Initial severity and likelihood | R | Approved scales and calculation method TBD |
+| Initial classification | R/A | Computed only by approved, versioned method |
+| Required baseline controls | C/A | Do not mark implemented merely because mapped |
+| Additional task-specific controls | C | Allow mitigation with responsible person and evidence requirement |
+| Control owner / verification | C | Authorization and evidence rules TBD |
+| Residual severity and likelihood | R | Explicit assessment after proposed controls |
+| Residual classification | R/A | Approved method and acceptance thresholds TBD |
+| Escalation / residual-risk acceptance | C | Block if threshold requires higher approval |
+| Linked permit / isolation / PPE / competency obligation | C/A | Authoritative linked state governs readiness |
+| Reviewer notes | O | Traceable to actor/revision |
+
+### Stage 4 — Review & Approval
+
+| Field | Class | Rule to verify |
+|---|---|---|
+| Plan revision and summary | R/A | Freeze the reviewed inputs and catalogue references |
+| Screening completeness | R/A | No unanswered mandatory questions |
+| Risk and mitigation summary | R/A | All required hazard assessment rows valid |
+| Control obligation status | R/A | Distinguish required, satisfied, pending, not applicable |
+| Readiness notice / blockers | R/A | Advisory status distinct from authoritative Start Work decision |
+| Submitter and submission timestamp | R/A | Authenticated actor; no editable user IDs |
+| Reviewer / approver decision | C | Authorized roles, independence, reason and timestamp |
+| Rejection or change request reasons | C | Required for negative decisions |
+| Participant acknowledgment | C | Separate from approval if policy requires |
+| Linked evidence and decision audit | R/A | Historical retrieval with immutable references |
+
+## 12. User journeys and state transitions (proposed)
+
+| Journey | Entry / trigger | Expected outcome | Failure / recovery |
+|---|---|---|---|
+| Create plan | Eligible user opens task Safety | Draft linked to correct task and asset | Missing task/permission → deny without partial record |
+| Resume draft | User returns after interruption | All previously saved fields preserved | Save conflict → explain, refresh and reconcile |
+| Select hazards | User answers 12 questions | Selected hazards flow to assessment | Unknown mapping → flag, do not invent controls |
+| Complete risk assessment | User evaluates each hazard | Initial/residual risk and mitigation evidence captured | Missing/invalid scores → block submission |
+| Submit | Creator requests review | Validated immutable submitted revision | Stale linked facts → refuse; identify changed fields |
+| Approve/reject | Authorized reviewer acts | Atomic decision on a specific revision | Unauthorized/stale/concurrent decision → refuse without partial writes |
+| Start work | Task user requests execution | Authoritative controls and approvals rechecked | Unsatisfied PTW/LOTO/competence → block and display action |
+| Revise | Material change occurs | Superseding draft with reassessment obligations | Old approval cannot authorize changed work |
+| Handover | Shift/participant changes | Current applicable revision and obligations acknowledged | Missing/withdrawn acknowledgment handled by approved policy |
+| Restore after outage | Connectivity/storage interruption | Consistent, auditable state; retry is idempotent | No silent transition or duplicate approval |
+
+### Proposed lifecycle vocabulary
+
+`Draft → Submitted → Under Review → Approved / Rejected → Superseded`. “Start Work,” “Paused” and “Completed” are **Task** states rather than implicit Safety Plan states. The exact Safety Plan lifecycle, rejection/resubmission and expiry policies need owner approval.
+
+### Negative and exceptional scenarios
+
+- A Yes answer is changed to No after risk assessment: mapped hazard rows cannot be silently deleted from an approved revision; impact is shown and re-review is required.
+- The question catalogue changes while a draft is open: a migration or version-pinning policy must be chosen; no automatic rewrite of approved snapshots.
+- The equipment, scope, workforce, permit, isolation, or control state changes between screen load and approval: server re-evaluates before write.
+- A person loses approval authority: subsequent approval attempts fail; treatment of historical decisions follows governed policy.
+- Two reviewers approve or revise concurrently: a single committed outcome is enforced and conflicts are explained.
+- A permit/LOTO service becomes unavailable: unknown is not treated as satisfied.
+- A plan contains an unknown hazard: follow defined escalation rather than assign a speculative risk score.
+- Work is stopped or aborted while isolation remains live: maintain explicit linkage and passdown visibility.
+
+## 13. Traceability and acceptance matrix
+
+| Requirement cluster | Detailed artifacts to govern it | Principal verification |
+|---|---|---|
+| SAF-REQ-001–003 | Product Requirements, UX, Data Model | Draft/create/resume and routing E2E |
+| SAF-REQ-004–007 | Hazard Catalogue, Process Rules, UX | 12-question completeness, mapping and provenance |
+| SAF-REQ-008–009 | Risk Method, Standards Register, Interface Contracts | Calculation and linked-control test suite |
+| SAF-REQ-010–012 | Approval Matrix, Process Rules, Safety Assurance | Unauthorized/stale/blocking scenarios |
+| SAF-REQ-013–015 | Event Contract, Revision Policy, Records | Concurrency, rollback, replay, change detection |
+| SAF-REQ-016 | UX Specification | Keyboard, responsive and accessibility checks |
+| SAF-REQ-017–019 | Handover, Catalogue Governance, ACOS | Participant and event integration tests |
+| SAF-REQ-020 | Task Workspace Specification | Task/safety shared journey |
+
+**Evidence rule:** A feature issue can be implemented against an approved requirement but cannot be called verified without linked tests or review evidence. Governance approvals do not automatically mean software is released.
+
+## 14. Decisions and completeness gate
+
+The eight decisions in §8 remain open. Additionally resolve:
+- **SAF-DEC-009:** exact field mandatory/conditional rules and defaults.
+- **SAF-DEC-010:** draft/submit/reject/revise lifecycle and historical snapshot rules.
+- **SAF-DEC-011:** what changed inputs invalidate approvals/readiness, including catalogue migrations.
+- **SAF-DEC-012:** what counts as independent verification of linked physical safety controls.
+- **SAF-DEC-013:** offline behaviour, fail-safe rules and retention of unsent drafts.
+- **SAF-DEC-014:** treatment of hazards marked not applicable, unknown, or not covered by mappings.
+
+### Approval checklist
+- [ ] Product owner accepts scope and four-stage workflow
+- [ ] Exact 12 screening questions and approved mapping source supplied
+- [ ] Risk method and authority documented, including escalation thresholds
+- [ ] Standards applicability reviewed; binding requirements distinguished from guidance
+- [ ] Approval/competence matrix and lifecycle rules accepted
+- [ ] Data, integrations, security, failure behaviour and historical records reviewed
+- [ ] E2E and negative-path acceptance scenarios signed off
+
+**Baseline status: BLOCKED until review and open decisions are resolved.**
