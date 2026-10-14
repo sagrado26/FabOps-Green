@@ -140,3 +140,92 @@ Tests are **planned, not executed**.
 - [ ] Execute evidence-linked tests and obtain Product Owner + Safety Authority sign-off.
 
 **Disposition:** Catalogue framework drafted. Hazard **content completeness remains blocked** until the actual twelve questions and mapped safety material are supplied and approved.
+
+
+## 11. Reconciled source inventory — historical FabPilot FSM
+
+**Source review (14 October 2026):** The following data are extracted from the current historical repository source files. They are **implementation/reference content**, not a published or safety-approved 12-question screening catalogue. No legacy source code has been imported into FabOps-Green.
+
+### 11.1 Pre-task hazard selection tiles (18 entries)
+
+Source: [NewSafetyPlan.tsx](https://github.com/sagrado26/fabpilot-fsm/blob/main/App%20files/src/active-ui/ExSafetyPlan/NewSafetyPlan.tsx). These are presentation hazard *tiles*, not the authoritative screening questions.
+
+| Source key | Displayed hazard consideration | Description in source |
+|---|---|---|
+| `skills-certifications` | Skills or certifications required | Confirm the required training, authorization, or certification. |
+| `permit-to-work` | Permit to Work | A governed permit is required for this task or work area. |
+| `combustible-flammable-toxic` | Combustible / flammable / toxic materials | Exposure to hazardous substances or combustible materials. |
+| `radiation` | Ionizing / Radio / Electromagnetic radiation | Ionizing, radio-frequency, or electromagnetic-field exposure. |
+| `hazardous-energy` | Hazardous energy sources | Electrical, mechanical, pneumatic, hydraulic, or stored energy. |
+| `temperature` | High / low temperature objects | Hot or cold surfaces, fluids, or equipment. |
+| `environmental` | Environmental hazards | Noise, lighting, weather, ventilation, or surrounding conditions. |
+| `work-above-four-feet` | Work above 4 ft | Work at height above 4 ft / 1.2 m. |
+| `falling-objects` | Falling objects | Tools, parts, or materials may fall. |
+| `open-floors-holes` | Open floors or holes | Floor tiles, penetrations, or unprotected openings. |
+| `ergonomic` | Ergonomic risks | Awkward posture, repetition, or constrained access. |
+| `manual-lifting` | Manual lifting >35 lbs | Manual handling above 35 lbs / 15.9 kg. |
+| `crane-use` | Crane use | A hoist, crane, or lifting device is required. |
+| `line-of-fire` | Line of fire | Potential crush, strike, pinch, or release path. |
+| `heavy-material-movement` | Heavy material movement | Movement of heavy parts, carts, or equipment. |
+| `permanent-magnetic-fields` | Permanent magnetic fields | Exposure to permanent magnetic fields. |
+| `oxygen-deficiency` | Oxygen deficiency / asphyxiants | Confined-space or displaced-oxygen risk. |
+| `other-risks` | Other risks | Additional risks not listed above. |
+
+### 11.2 Current wizard hazard-to-library suggestions
+
+Source: [NewSafetyPlan.tsx](https://github.com/sagrado26/fabpilot-fsm/blob/main/App%20files/src/active-ui/ExSafetyPlan/NewSafetyPlan.tsx), `CHECK_HAZ` map. Labels without a source map are left unmapped, rather than invented.
+
+| Pre-task consideration | Suggested hazard catalogue names |
+|---|---|
+| Skills or certifications required | Confined Space; Hoisting or Crane Use |
+| Combustible / flammable / toxic materials | Combustible / Flammable; Toxic Materials |
+| Ionizing / Radio / Electromagnetic radiation | Ionizing / EM Radiation; Optical Radiation |
+| Hazardous energy sources | Electrical Work (LOTO); Mechanical Hazards; Fluids (Water, Gas, Vacuum) |
+| High / low temperature objects | High or Low Temperature |
+| Environmental hazards | Noise |
+| Work above 4 ft | Working at Height |
+| Falling objects | Falling Objects / Safety Netting |
+| Open floors or holes | Floor tile lift / Barricades |
+| Ergonomic risks | Ergonomic Risk |
+| Manual lifting >35 lbs | +35 lb Manual Lifts |
+| Crane use | Hoisting or Crane Use |
+| Line of fire | Pinch Points; Mechanical Hazards |
+| Heavy material movement | Material Movements |
+| Permanent magnetic fields | Permanent Magnetic Fields |
+| Oxygen deficiency / asphyxiants | Lack of Oxygen; Confined Space |
+
+### 11.3 Earlier configurable pre-task check legacy guide
+
+Source: [ExCreate/data.ts](https://github.com/sagrado26/fabpilot-fsm/blob/main/App%20files/src/active-ui/ex-create/ExCreate/data.ts), `CHECK_HAZ` map. The file explicitly says its eleven historical screening tiles were replaced with administrator-configurable Yes/No check definitions, and this list survives as a *Hazard Relationship Guide*, not live question authority.
+
+| Historic guide label | Suggested hazard catalogue names |
+|---|---|
+| Heavy Lifting | +35 lb Manual Lifts; Material Movements |
+| LOTO Required | Electrical Work (LOTO) |
+| Chemicals / Hazmat | Toxic Materials; Combustible / Flammable; Lack of Oxygen |
+| Fall Hazard | Working at Height; Falling Objects / Safety Netting |
+| Barricades Required | Floor tile lift / Barricades |
+| Ergonomic Concerns | Ergonomic Risk |
+| Head Injury Risk | Falling Objects / Safety Netting |
+| Specialized Training | Confined Space; Hoisting or Crane Use |
+| Other Work in Area | Floor tile lift / Barricades |
+| Additional PPE | Confined Space; Electrical Work (LOTO) |
+
+### 11.4 Governed active-question source, not a fixed array
+
+- [Pre-task checks query](https://github.com/sagrado26/fabpilot-fsm/blob/main/App%20files/deployment-domain/queries/src/pre-task-checks.ts) reads active `PreTaskCheckDefinition` records ordered by sort position and code, including their authored question text.
+- [Pre-task checks command](https://github.com/sagrado26/fabpilot-fsm/blob/main/App%20files/deployment-domain/commands/src/pre-task-checks.ts) provides audited configuration changes, permissions and retirement rules.
+- [Pre-task check UI](https://github.com/sagrado26/fabpilot-fsm/blob/main/App%20files/src/active-ui/ex-create/ExCreate/pre-task-checks.tsx) displays one Yes/No question per active definition.
+- **The exact currently active definition records are data-dependent**. Reading source files does not establish the live site's twelve question texts, versions or answers. They must be exported from the authoritative configuration, validated, and linked to a safety approval record.
+
+### 11.5 Differences to resolve before publishing v0
+
+| Discrepancy | Finding | Action |
+|---|---|---|
+| 12 versus 11 versus 18 | Product direction sets a baseline of 12 controlled questions; the legacy relationship guide has 11 categories; the wizard shows 18 hazard tiles. | Treat as three distinct layers, not matching question counts; obtain actual twelve approved question records. |
+| Duplicate mappings | “Hoisting or Crane Use”, mechanical hazards and confined-space-related entries appear in multiple mappings. | Model many-to-many relations, preserve provenance; do not duplicate risk records automatically. |
+| Missing mapping | Some wizard hazard tiles have no `CHECK_HAZ` suggestion and the historic catch-all deliberately maps to no single hazard. | Mark unmapped; require a defined safe review pathway. |
+| Source version and authority | UI defaults and guide labels differ from controlled, published question definitions. | Require accountable Safety Content Steward to select, approve and version the baseline. |
+| Hazard risk details | Source supports description and suggested controls, but does not itself certify task-specific risk or implemented controls. | Keep actual initial/residual assessment and control verification separate. |
+
+**Disposition:** Real historical labels/mappings recovered. The twelve controlled screening question contents and approved mapping remain a targeted source-data/approval gap, not twelve undiscovered UI labels.
