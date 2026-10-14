@@ -64,3 +64,7 @@ The product objective, task-linked four-stage workflow and high-level feature ou
 ## Review conclusion
 
 **Not approved.** The documentation package is a coherent working v0 draft. The review found ten corrective actions; four have blocking consequences for either the implementation baseline or operational release. The status cannot advance to *Baselined* solely by closing this review file. Actual product and safety authority decisions and evidence are required.
+
+## REV-001 progress update — 14 October 2026
+
+[BR-001–065 draft traceability register](SAF-001-Business-Rule-Traceability.md) now contains 65 numbered rules and references all 32 SAF-REQ IDs. **Inventory prepared; REV-001 remains open** pending rule accuracy review, approved policy decisions, detailed test mapping and sign-off.
