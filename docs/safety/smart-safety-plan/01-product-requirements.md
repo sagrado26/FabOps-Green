@@ -1,37 +1,28 @@
 # SAF-001 — Smart Safety Plan: Product Requirements
 
-| Attribute | Value |
-|---|---|
-| Product | FabPilot / FabOps Green |
-| Function | Safety |
-| Feature | SAF-001 — Smart Safety Plan |
-| Document | 01 — Product Requirements |
-| Version | 0.3 |
-| Status | Draft — not approved |
-| Date | 2026-10-14 |
-| Owner / approver | To be appointed |
-| Related development issues | FP-014, FP-015, FP-016, FP-017 |
-| Next documents | Standards, Process Rules, Hazard Catalogue, Data Model, Roles, UX, Verification, Integration, Safety Assurance |
+> **Status:** Draft v0.4 · 14 October 2026 · **Not approved for implementation or safety use**  
+> **Product:** FabPilot (FabOps-Green) · **Function:** Safety · **Owner/approver:** To be assigned  
+> **Linked issues:** [FP-014](https://github.com/sagrado26/FabOps-Green/issues/14), [FP-015](https://github.com/sagrado26/FabOps-Green/issues/15), [FP-016](https://github.com/sagrado26/FabOps-Green/issues/16), [FP-017](https://github.com/sagrado26/FabOps-Green/issues/17)
 
-> **Safety assurance boundary:** This document proposes digital workflow requirements. Approval in software must not be confused with confirmation that physical isolation, equipment safeguards, permits, or other safety controls are actually implemented. Applicable legal, company and equipment-specific obligations must be validated by qualified authorities before use.
+This document defines **what** the Smart Safety Plan must do. It does not certify physical controls or establish an approved risk model. Detailed source conflicts, historical decisions and unresolved policy questions are maintained separately in [Reconciliation](03-source-reconciliation.md) and [Open Decisions](02-decision-register.md).
 
-## 1. Purpose and problem
+## 1. Purpose and boundaries
 
 FabPilot Smart Safety Plan provides a task-linked, version-controlled workflow for identifying hazards, assessing risk, selecting and checking controls, reviewing and approving planned work, and detecting changes that may require re-assessment. Safety is embedded in maintenance task execution rather than presented as an isolated administrative form.
 
-### Intended outcomes
+### Outcomes
 - Help field service engineers prepare safe maintenance work with minimal unnecessary form completion.
 - Make critical hazards and controls visible where task decisions are made.
 - Prevent digital start-work authorization when required assessments, controls, or approvals have not been satisfied.
 - Provide a reliable, reconstructable record of what was assessed, by whom, against which revision, and when.
 - Support safe handover and controlled re-assessment during long or multi-shift work.
 
-### Boundaries
+### Scope
 **In scope:** four-stage plan, draft/resume, task/equipment linkage, screening, risk assessment, conditional control obligations, review/approval, readiness inputs, revisions, audit trail and interaction with tasks/PTW/LOTO/competence.
 
 **Out of scope for this document:** the detailed independent implementations of PTW, LOTO and SRB; definitive risk calculation formula; statutory compliance assertions; production deployment policy; engineering implementation stack. Each needs its own approved specification.
 
-## 2. Users and permissions (roles provisional)
+## 2. Users and authority
 
 | Persona | Activities | Authority boundary |
 |---|---|---|
@@ -44,7 +35,7 @@ FabPilot Smart Safety Plan provides a task-linked, version-controlled workflow f
 
 All state-changing permissions must be enforced server-side, not merely by disabled UI buttons.
 
-## 3. User experience — four stages
+## 3. Four-stage user journey
 
 1. **Task Details:** link to the task, equipment, work scope, relevant conditions, participants and planned operation. Reuse trusted task data wherever possible; avoid repeated entry.
 2. **Hazard Identification:** present **12 pre-task screening questions**. A Yes response opens relevant selectable hazards and concise contextual guidance; No responses should remain compact. Acknowledge missing/unknown information rather than silently treating it as No.
@@ -53,7 +44,9 @@ All state-changing permissions must be enforced server-side, not merely by disab
 
 The application should show baseline safety guidance progressively within a question/hazard card or compact detail space, without overwhelming users or misrepresenting recommendations as verified controls.
 
-## 4. Product requirements
+## 4. Functional requirements
+
+The following IDs are stable draft requirement identifiers, not accepted safety rules. **P0** means proposed for first functional acceptance and **P1** means later candidate. All safety-specific policies are subject to the decision register.
 
 Priority P0 means required for initial functional acceptance; P1 means later capability, subject to product owner approval.
 
@@ -80,79 +73,24 @@ Priority P0 means required for initial functional acceptance; P1 means later cap
 | SAF-REQ-019 | P1 | Publish governed events for ACOS coordination and notifications with auditable outcomes. | Event/idempotency integration test |
 | SAF-REQ-020 | P0 | Make safety controls visible from the task execution workspace without forcing duplicate workflows. | Integrated task journey test |
 
-## 5. Core rules — draft, subject to formal approval
+| SAF-REQ-021 | P0 | Distinguish **controlled question definitions** from UI form presentation; active questions and applicability come from approved governed data. | Catalogue/version authority tests; reject unknown required question IDs |
+| SAF-REQ-022 | P0 | A complete saved answer snapshot must survive conditional UI hide/show. Hiding a field must **not** imply answer deletion; explicit clearing is a separate audited action governed by policy. | Hide/show, chained conditions and save/reload tests |
+| SAF-REQ-023 | P0 | Drafts may be incomplete; submission applies authoritative completeness, hazards, risk and approval checks on the server. | Incomplete-draft success; incomplete-submit rejection |
+| SAF-REQ-024 | P0 | Contextual visibility supports transitive conditions; hidden controllers cannot activate descendants; invalid/cyclic dependencies are rejected by controlled definition validation. | Conditional-cycle and dependency tests |
+| SAF-REQ-025 | P0 | Enforce all Safety Plan, PTW, LOTO, SRB, risk and Start Work decisions in trusted application/domain services. The frontend cannot create safety authorization through its own calculation or approval route. | Attempted UI bypass and API authorization tests |
+| SAF-REQ-026 | P0 | Provide a **reusable governed form configuration** (sections, fields, options, conditions, data bindings and versions), with non-persistent preview and authorized publish. | Preview/publish permission, revision and audit tests |
+| SAF-REQ-027 | P0 | Use current authoritative task/plan identities and expected revisions. Reject stale edits and refresh the authoritative saved state after mutation before displaying success. | Stale revision, invalid actor and failed save tests |
+| SAF-REQ-028 | P0 | Link specific Safety Plan versions to applied hazard catalogue versions, approved scoring models and evidence; preserve historical decisions after template updates. | Historical snapshot reconstruction |
+| SAF-REQ-029 | P0 | Separate SRB **risk re-assessment** from automatically creating a new plan revision; exact relationship and approval/acknowledgment policy require separate adopted rulings. | SRB-to-plan change tests after owner decision |
+| SAF-REQ-030 | P0 | Required permit, isolation, acknowledgment and competence gates shall be defined by controlled rules, including whether changes affect future start/restart versus already-running work. | Transition-specific permit/lock/acknowledgment tests |
+| SAF-REQ-031 | P1 | Presentation icons must use a consistent controlled mapping; no unverified icon may be labeled ISO/GHS certified. | Design asset provenance and consistency review |
+| SAF-REQ-032 | P0 | There shall be one canonical task-linked Safety Plan entry, create/edit and review journey, without competing live authorization routes. | Route inventory and complete task journey |
 
-- A missing answer is **not** equivalent to No.
-- A mapped baseline control is **guidance/requirement**, not evidence that the control has been implemented.
-- Safety Plan readiness is a *signal*, not an independent substitute for physical verification.
-- Approvals apply to a specific plan revision and relevant linked facts; later material changes require governed reconsideration.
-- Only authorised users may approve, override, revise or restore controlled safety states; override rules, if any, require their own safety governance.
-- Rejected or stale approvals must not partially modify records.
-- Work must not start from an unqualified, unresolved or outdated safety state.
-- The source of authority for every mandatory obligation must be traceable.
+## 5. Form fields and conditional behaviour
 
-## 6. Interfaces and dependencies
+**Classification:** R = required before submission, C = conditionally required, A = sourced from an authoritative system, O = optional. Drafts may remain incomplete. Mandatory status and source-of-truth rules remain subject to approval.
 
-| Interface | Required relationship |
-|---|---|
-| Task Management | Task identity, state, scope, work execution and start-work gate |
-| Equipment | Asset identification, work context, equipment-specific risks |
-| PTW / LOTO / PPE | Linked obligations and independently verified control state |
-| Workforce / Identity | Qualified participants, roles, approval authorization |
-| Operations / Passdown | Safety revision/hold/acknowledgment continuity |
-| Materials | Relevant hazardous materials and changes in material context |
-| ACOS | Event notifications, reevaluation and decision evidence |
-| Records / Audit | Append-only decision history and retrieval of historical context |
 
-## 7. Measures and non-functional requirements
-
-Candidate KPIs, to be defined with baselines and targets: time to prepare/approve a plan; hazard selection and control completion quality; proportion of plans reopened for material changes; overdue approval counts; blocked start-work attempts; mismatch/exception rates; user correction rate. Do not optimize completion speed at the expense of control effectiveness.
-
-Requirements for responsiveness, availability, retention, recovery time, performance, localization and audit data classification are **TBD**, not silently assumed.
-
-## 8. Open decisions — blocking before baseline approval
-
-| Decision ID | Question | Proposed owner |
-|---|---|---|
-| SAF-DEC-001 | What are the exact 12 screening questions, applicability and hazard mappings? | Safety authority / product owner |
-| SAF-DEC-002 | Which risk methodology, thresholds and residual-risk approval gates apply? | Safety authority |
-| SAF-DEC-003 | Which SEMI, legal, customer, corporate and equipment-specific obligations actually apply? | Compliance / safety authority |
-| SAF-DEC-004 | What is the SRB relationship to the Safety Plan and how do PTW/LOTO states gate work? | Safety / engineering |
-| SAF-DEC-005 | Who may create, submit, approve, reject, reopen and override, with what separation of duty? | Product owner / safety authority |
-| SAF-DEC-006 | What constitutes a material change requiring re-review and acknowledgment? | Safety / operations |
-| SAF-DEC-007 | What data retention, signing/evidence and privacy rules apply? | Security / records governance |
-| SAF-DEC-008 | What are release scope, test thresholds and approved operational deployment conditions? | Product / release authority |
-
-## 9. Document approval and traceability
-
-**Draft → Product review → Technical review → Safety review → Owner approval → Baselined.** Approval remains pending. Implementers must link each change to a SAF-REQ ID, tests and a recorded design decision where applicable. No implementation completion or compliance approval is implied by this draft.
-
-### Next documentation artifacts
-- 02 Standards & Legal Basis
-- 03 Process & Business Rules
-- 04 Hazard & Risk Catalogue (12 questions and mappings)
-- 05 Data Model & Records
-- 06 Roles & Governance
-- 07 UX Functional Specification
-- 08 Verification & Acceptance
-- 09 System Integrations
-- 10 Safety Assurance & Failure Behaviour
-- 11 Security, Privacy & Audit
-- 12 Lifecycle & Change Management
-- 13 Operations & Recovery
-- 14 Business Case & KPIs
-
-## 10. Change log
-
-| Version | Date | Change |
-|---|---|---|
-| 0.1 | 2026-10-14 | Initial controlled requirements draft, pending reviews |
-| 0.2 | 2026-10-14 | Added detailed fields, journeys, negative cases, traceability and approval gates |
-| 0.3 | 2026-10-14 | Redrafted against current main and open Safety Plan PR documentation; clarified non-approved baseline, reusable form design, persistence semantics and unresolved contracts |
-
-## 11. Detailed field inventory (proposed; validate with product owner)
-
-Field classifications: **R** required before submission, **C** conditionally required, **A** automatically sourced where authoritative, **O** optional. Draft saves may be incomplete. Field-level truth sources and validation contracts are not yet approved.
 
 ### Stage 1 — Task Details
 
@@ -215,7 +153,7 @@ Field classifications: **R** required before submission, **C** conditionally req
 | Participant acknowledgment | C | Separate from approval if policy requires |
 | Linked evidence and decision audit | R/A | Historical retrieval with immutable references |
 
-## 12. User journeys and state transitions (proposed)
+## 6. Lifecycle and exception scenarios
 
 | Journey | Entry / trigger | Expected outcome | Failure / recovery |
 |---|---|---|---|
@@ -245,7 +183,29 @@ Field classifications: **R** required before submission, **C** conditionally req
 - A plan contains an unknown hazard: follow defined escalation rather than assign a speculative risk score.
 - Work is stopped or aborted while isolation remains live: maintain explicit linkage and passdown visibility.
 
-## 13. Traceability and acceptance matrix
+## 7. Governing principles and integration points
+
+- A missing answer is **not** equivalent to No.
+- A mapped baseline control is **guidance/requirement**, not evidence that the control has been implemented.
+- Safety Plan readiness is a *signal*, not an independent substitute for physical verification.
+- Approvals apply to a specific plan revision and relevant linked facts; later material changes require governed reconsideration.
+- Only authorised users may approve, override, revise or restore controlled safety states; override rules, if any, require their own safety governance.
+- Rejected or stale approvals must not partially modify records.
+- Work must not start from an unqualified, unresolved or outdated safety state.
+- The source of authority for every mandatory obligation must be traceable.
+
+| Interface | Required relationship |
+|---|---|
+| Task Management | Task identity, state, scope, work execution and start-work gate |
+| Equipment | Asset identification, work context, equipment-specific risks |
+| PTW / LOTO / PPE | Linked obligations and independently verified control state |
+| Workforce / Identity | Qualified participants, roles, approval authorization |
+| Operations / Passdown | Safety revision/hold/acknowledgment continuity |
+| Materials | Relevant hazardous materials and changes in material context |
+| ACOS | Event notifications, reevaluation and decision evidence |
+| Records / Audit | Append-only decision history and retrieval of historical context |
+
+## 8. Verification and traceability
 
 | Requirement cluster | Detailed artifacts to govern it | Principal verification |
 |---|---|---|
@@ -260,89 +220,26 @@ Field classifications: **R** required before submission, **C** conditionally req
 
 **Evidence rule:** A feature issue can be implemented against an approved requirement but cannot be called verified without linked tests or review evidence. Governance approvals do not automatically mean software is released.
 
-## 14. Decisions and completeness gate
+## 9. Performance and adoption measures
 
-The eight decisions in §8 remain open. Additionally resolve:
-- **SAF-DEC-009:** exact field mandatory/conditional rules and defaults.
-- **SAF-DEC-010:** draft/submit/reject/revise lifecycle and historical snapshot rules.
-- **SAF-DEC-011:** what changed inputs invalidate approvals/readiness, including catalogue migrations.
-- **SAF-DEC-012:** what counts as independent verification of linked physical safety controls.
-- **SAF-DEC-013:** offline behaviour, fail-safe rules and retention of unsent drafts.
-- **SAF-DEC-014:** treatment of hazards marked not applicable, unknown, or not covered by mappings.
+Candidate KPIs, to be defined with baselines and targets: time to prepare/approve a plan; hazard selection and control completion quality; proportion of plans reopened for material changes; overdue approval counts; blocked start-work attempts; mismatch/exception rates; user correction rate. Do not optimize completion speed at the expense of control effectiveness.
 
-### Approval checklist
-- [ ] Product owner accepts scope and four-stage workflow
-- [ ] Exact 12 screening questions and approved mapping source supplied
-- [ ] Risk method and authority documented, including escalation thresholds
-- [ ] Standards applicability reviewed; binding requirements distinguished from guidance
-- [ ] Approval/competence matrix and lifecycle rules accepted
-- [ ] Data, integrations, security, failure behaviour and historical records reviewed
-- [ ] E2E and negative-path acceptance scenarios signed off
+Requirements for responsiveness, availability, retention, recovery time, performance, localization and audit data classification are **TBD**, not silently assumed.
 
-**Baseline status: BLOCKED until review and open decisions are resolved.**
+## 10. Review status and supporting specifications
 
-## 15. Greenfield redraft — source-based reconciliation (v0.3)
+- [Decision Register](02-decision-register.md) — unresolved decisions, owners and approval gate.
+- [Source Reconciliation](03-source-reconciliation.md) — historical FabPilot main, open PR candidates and conflicting source rules.
+- [Historical references](references/README.md) — preserved evidence, **not** greenfield approvals.
+- Future companion specifications: standards/legal basis, process rules, hazard catalogue, data model, governance/roles, UX, verification, integration, safety assurance, security/records, change control, operational support and KPIs.
 
-**Authority level:** This is a candidate product contract, not an approval of historical FabPilot engineering decisions. The greenfield architecture remains independently selectable. Historical implementation is examined for coverage and failure modes, **not copied**.
+**Approval path:** Draft → Product review → Technical review → Safety review → Owner approval → Baseline. No requirement is approved solely because its historical implementation exists. Exact 12-question wording, mappings, risk methodology, PTW/LOTO/SRB treatment and independent safety verification remain unresolved.
 
-### Sources examined
+## Change history
 
-| Source | Source authority for this draft | Verified evidence |
+| Version | Date | Summary |
 |---|---|---|
-| FabPilot `main` at `9518807a31e9e751f7dcbb9bc71d226ad461a633` | Historical application snapshot | Verified GitHub comparison identical to current main during review |
-| PR #176 `Documentation/smart-forms/CONSOLIDATION-2026-10-13.md` | Historical reconciliation proposal | Four-stage owner intent, branch conflicts, unqualified integration |
-| PR #179 `Documentation/audits/SAFETY-CANONICAL-PAGE-INVENTORY-2026-10-13.md` | Historical audit/candidate | Reusable form framework; 12 questions not controlled; backend safety boundaries |
-| PR #181 `Documentation/smart-forms/SAFETY-PLAN-INTEGRATION.md` | Unmerged technical candidate | Conditional answer retention, explicit clearing, incomplete drafts, server authorization |
-| PR #177 `App files/src/active-ui/SmartSafetyPlanBuilder/README.md` | Unmerged design candidate | Governed builder, preview and publish boundaries |
-| Copied historical reconciliation and owner-rulings documents in `references/` | Historical decision evidence | SRB, PTW and acknowledgment details require adoption decisions |
-
-**Source limitation:** The original 425-line external ISP specification was not available in full readable form in this reconciliation. This document must not claim exact source-to-requirement completeness.
-
-### Confirmed product intent versus proposals
-
-| Aspect | Preserved owner intent | Undecided / requiring approval |
-|---|---|---|
-| UX | One task-linked four-stage plan: pre-task details; hazard screening; risk assessment; review/sign-off | Exact stage labels and mandatory input conditions |
-| Screening | 12 intended pre-task questions with compact Yes→hazard selection | Approved question wording, number of currently active records, mappings and catalogue ownership |
-| Hazard guidance | Show hazards, undesired events/outcomes, baseline controls progressively | Authority/provenance of ISO/GHS icons and any mapping not yet approved |
-| Risk | Show initial/residual risk and task-specific controls without a second risk model | Methodology, escalation thresholds, independence and acceptance |
-| Forms | Reusable builder, conditional questions, preview and controlled publication | Builder permissions, published schema contracts and migration policy |
-| Workflow | Connect Safety Plan with Tasks, readiness, PTW, LOTO, PPE, SRB, competency and audit | Exact terminal outcomes, permit lifecycle and approval/acknowledgment policy |
-| Rendering | Light enterprise UI, compact and responsive, visual awareness within Task Workspace | Definitive screen-level design and accessibility evidence |
-
-### Revised requirements and contracts
-
-| ID | Priority | Requirement | Verification |
-|---|---|---|---|
-| SAF-REQ-021 | P0 | Distinguish **controlled question definitions** from UI form presentation; active questions and applicability come from approved governed data. | Catalogue/version authority tests; reject unknown required question IDs |
-| SAF-REQ-022 | P0 | A complete saved answer snapshot must survive conditional UI hide/show. Hiding a field must **not** imply answer deletion; explicit clearing is a separate audited action governed by policy. | Hide/show, chained conditions and save/reload tests |
-| SAF-REQ-023 | P0 | Drafts may be incomplete; submission applies authoritative completeness, hazards, risk and approval checks on the server. | Incomplete-draft success; incomplete-submit rejection |
-| SAF-REQ-024 | P0 | Contextual visibility supports transitive conditions; hidden controllers cannot activate descendants; invalid/cyclic dependencies are rejected by controlled definition validation. | Conditional-cycle and dependency tests |
-| SAF-REQ-025 | P0 | Enforce all Safety Plan, PTW, LOTO, SRB, risk and Start Work decisions in trusted application/domain services. The frontend cannot create safety authorization through its own calculation or approval route. | Attempted UI bypass and API authorization tests |
-| SAF-REQ-026 | P0 | Provide a **reusable governed form configuration** (sections, fields, options, conditions, data bindings and versions), with non-persistent preview and authorized publish. | Preview/publish permission, revision and audit tests |
-| SAF-REQ-027 | P0 | Use current authoritative task/plan identities and expected revisions. Reject stale edits and refresh the authoritative saved state after mutation before displaying success. | Stale revision, invalid actor and failed save tests |
-| SAF-REQ-028 | P0 | Link specific Safety Plan versions to applied hazard catalogue versions, approved scoring models and evidence; preserve historical decisions after template updates. | Historical snapshot reconstruction |
-| SAF-REQ-029 | P0 | Separate SRB **risk re-assessment** from automatically creating a new plan revision; exact relationship and approval/acknowledgment policy require separate adopted rulings. | SRB-to-plan change tests after owner decision |
-| SAF-REQ-030 | P0 | Required permit, isolation, acknowledgment and competence gates shall be defined by controlled rules, including whether changes affect future start/restart versus already-running work. | Transition-specific permit/lock/acknowledgment tests |
-| SAF-REQ-031 | P1 | Presentation icons must use a consistent controlled mapping; no unverified icon may be labeled ISO/GHS certified. | Design asset provenance and consistency review |
-| SAF-REQ-032 | P0 | There shall be one canonical task-linked Safety Plan entry, create/edit and review journey, without competing live authorization routes. | Route inventory and complete task journey |
-
-### Special issue: historical PTW and SRB rules
-
-The copied historical owner rulings contain nuanced behaviour, including one-person-task acknowledgment, SRB reassessment, permit expiry notices, permit duration, and interaction of live permits with plan revision. **Do not replace these with an invented generic “always hard stop” rule.** Equally, historical rulings are **not automatically adopted** for FabOps-Green. For each case, record: source rule → safety consequence → proposed greenfield rule → authority signoff → acceptance test.
-
-### Specific reconciliation questions to close
-
-- **SAF-DEC-015:** Adopt the intended 12-question experience as exactly 12 mandatory governed questions, or allow a versioned configurable number with a validated baseline of 12?
-- **SAF-DEC-016:** Which hidden-answer preservation/explicit-clear policy and migration rules are binding?
-- **SAF-DEC-017:** Is a reusable governed form builder in the first release or an incremental release, with versioned publication before live use?
-- **SAF-DEC-018:** Which historical owner rulings are formally adopted for SRB acknowledgment, PTW duration/expiry, and permit behaviour on revision/termination?
-- **SAF-DEC-019:** What are the exact plan/task statuses and reauthorization boundaries for already-running versus newly-starting work?
-- **SAF-DEC-020:** What is the approved asset/icon mapping and source of hazard presentation information?
-- **SAF-DEC-021:** What is the canonical SRB/PTW/LOTO relationship to the plan, and where is each independent authority enforced?
-
-### Release and implementation guardrails
-
-The greenfield backlog items FP-014–FP-017 remain **not ready for unqualified implementation** until the applicable contract sections and source decisions are accepted. Teams may prototype presentation and test flows with explicitly non-production data, but shall not imply physical control verification. Do not merge PR #31 solely because these source links exist.
-
-**Next required evidence:** Complete original ISP source, exact hazard questions/catalogue and risk method, updated requirement-source decision matrix, review by product/engineering/safety owners.
+| 0.1 | 2026-10-14 | First draft |
+| 0.2 | 2026-10-14 | Fields, journeys and traceability added |
+| 0.3 | 2026-10-14 | Historical candidate reconciliation appended |
+| 0.4 | 2026-10-14 | Consolidated unique requirements, reorganised by reader workflow and separated decisions/evidence |
