@@ -264,3 +264,43 @@ The owner-provided *ISP — Integrated Safety Plan: Specification*, dated **9 Oc
 - **Receptor:** owner-retired; exclude from active UI/data contracts.
 
 The source's earlier §3.3 and §10 commentary still speaks of *six locked permits* and four permit hazards; these passages are **superseded** by §14 and must not be treated as current policy. Each example row's original permit label remains historical source data until converted by the later governing mapping.
+
+## 14. Complete supplied hazard-library v2 examples (31 rows)
+
+Transcribed from the owner's **ISP — Integrated Safety Plan: Specification**, §10 (9 October 2026). The original PTW type labels are preserved for provenance; the *later* §14 corrections govern any canonical permit mapping. Initial and residual S×L values here are **reference examples, not verified or automatically recorded risk assessments**.
+
+| HAZ | Source question label | Example | Suggested register hazard | Training | PTW flag | Original PTW type | Unwanted event → consequence | Seeded initial S×L | Typical / additional controls | Example residual S×L |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 001 | Specialized training? | Confined Space | Confined Space (alt entry form) | Confined Space Cert | Yes | Confined Space Permit | Worker overcome → serious injury/fatality | 3×2=6 | Permit, gas testing, attendant / rescue plan, continuous monitoring | 3×1 |
+| 002 | Specialized training? | QEW | Electrical Work where LOTO required | QEW Cert | Yes | Electrical PTW / LOTO | Contact with energized equipment → electrocution, burns | 3×2=6 | LOTO, test-before-touch / arc-rated PPE, insulated tools | 3×1 |
+| 003 | Specialized training? | H2 | Combustible/flammable/explosive | Hydrogen Safety | Yes | Gas System Permit | Hydrogen release → fire/explosion → fatality | 3×2=6 | Gas monitoring / leak checks, exclusion zone | 3×1 |
+| 004 | Specialized training? | Crane Operator | Hoisting or crane use | Crane Cert | Yes | Crane / Hoisting Permit | Suspended load → dropped load → crush/fatality | 3×2=6 | Lift plan / spotter, barricades | 3×1 |
+| 005 | Specialized training? | Stacker/Forklift | Material movements | Forklift License | No | N/A | Vehicle movement → collision/tip-over → serious injury | 3×2=6 | Authorized operator / traffic controls | 2×1 |
+| 006 | Chemicals/hazmat? | Chemicals | Toxic materials and substances | Chemical Handling | Yes | Hazardous Material Permit | Chemical exposure → splash → burns, respiratory | 2×2=4 | SDS review, PPE / spill kit, ventilation | 1×1 |
+| 007 | Chemicals/hazmat? | Hazardous Material | Toxic materials and substances | Hazmat Awareness | Yes | Hazardous Material Permit | Toxic exposure → illness, contamination | 2×2=4 | Approved handling / exposure monitoring | 1×1 |
+| 008 | Other work in area? | Nearby maintenance | Other Risks | General Safety | No | N/A | Simultaneous ops → personnel conflict → injury | 2×3=6 | Work coordination / area communication | 1×1 |
+| 009 | Other work in area? | Other contractors/trades | Other Risks | Contractor Coordination | No | N/A | SIMOPS conflict → work interference → injury | 2×3=6 | Coordination meeting / permit review | 1×1 |
+| 010 | Falls ≥4ft (1.2m)? | Elevated work platform | Working at height (Harness + MSLP checklist) | Fall Protection | Yes | Work at Height Permit | Fall from platform → serious injury/fatality | 3×2=6 | Harness, anchor point / rescue plan | 3×1 |
+| 011 | Falls ≥4ft (1.2m)? | Ladder Work | Working at height (Harness + MSLP checklist) | Ladder Training | No | N/A | Ladder fall → medical treatment injury | 2×2=4 | Ladder inspection / spotter | 1×1 |
+| 012 | Barricades (floor tile)? | Floor tile removal | Floor tile lift / barricades | Work Area Safety | Yes | Floor Opening Permit | Open floor → trip/fall → fracture | 2×2=4 | Barricades / area attendant | 1×1 |
+| 013 | Barricades (floor tile)? | Temporary obstruction | Floor tile lift / barricades | Work Area Safety | No | N/A | Restricted pathway → unauthorized entry → minor injury | 2×2=4 | Cones, signage / area inspections | 1×1 |
+| 014 | LOTO required? | Transfer of Locks | Electrical Work where LOTO required | LOTO Cert | Yes | LOTO Permit | Hazardous energy → unexpected energization → fatality | 3×2=6 | LOTO procedure / independent verification | 3×1 |
+| 015 | LOTO required? | Validation of Locks | Electrical Work where LOTO required | LOTO Cert | Yes | LOTO Permit | Hazardous energy → unexpected startup → fatality | 3×2=6 | Zero-energy verification / supervisor verification | 3×1 |
+| 016 | LOTO required? | Hardware Installation | Electrical Work where LOTO required | LOTO Cert | Yes | LOTO Permit | Electrical/mechanical energy → contact → severe injury | 3×2=6 | Isolation procedures / secondary isolation | 3×1 |
+| 017 | Lifting >35lbs/15.9kg? | Manual Lift >35lbs | Ergo Risk | Manual Handling | No | N/A | Heavy lifting → overexertion → strain/sprain | 2×3=6 | Team lift / mechanical aids | 1×1 |
+| 018 | Lifting >35lbs/15.9kg? | Hoisting Activity | Hoisting or crane use | Rigging Training | Yes | Hoisting Permit | Suspended load → dropped load → crush | 3×2=6 | Certified rigging / tag lines, exclusion zone | 2×1 |
+| 019 | Ergonomic concerns? | Moving heavy items | Ergo Risk | Manual Handling | No | N/A | Forceful exertion → MSD → medical treatment | 2×3=6 | Mechanical aids / weight reduction | 1×1 |
+| 020 | Ergonomic concerns? | Awkward posture | Ergo Risk | Ergonomic Awareness | No | N/A | Poor positioning → strain/sprain → soft tissue | 2×3=6 | Ergonomic assessment / workstation mods | 1×1 |
+| 021 | Ergonomic concerns? | Repetitive movement | Ergo Risk | Ergonomic Awareness | No | N/A | Repetitive motion → RSI → long-term discomfort | 2×3=6 | Job rotation / rest breaks | 1×1 |
+| 022 | Other safety concerns? | Unidentified hazard | Other Risks | General Safety | Depends | Depends | Unknown hazard → unplanned incident → injury | 2×2=4 | Hazard assessment / controls identified in review | 1×1 |
+| 023 | Head injury risk? | Overhead crane | Falling objects / safety netting | General Safety | No | N/A | Falling object → strikes worker → head injury | 3×2=6 | Hard hat / tool tethering | 2×1 |
+| 024 | Head injury risk? | Falling objects | Falling objects / safety netting | General Safety | No | N/A | Falling object → impact → concussion/fracture | 3×2=6 | Hard hat / safety netting | 2×1 |
+| 025 | Head injury risk? | Overhead modules | Mechanical | General Safety | No | N/A | Head strike overhead → minor-moderate injury | 2×2=4 | Bump cap / hazard marking | 1×1 |
+| 026 | Head injury risk? | Under floor | Mechanical | General Safety | No | N/A | Head strike structure → minor injury | 2×2=4 | Bump cap / area lighting | 1×1 |
+| 027 | Other PPE needed? *(control)* | Knee pads | Ergo Risk | PPE Training | No | N/A | Kneeling work → knee strain → minor injury | 1×3=3 | Knee pads / work positioning aids | 1×1 |
+| 028 | Other PPE needed? *(control)* | Cut-resistant gloves | Mechanical | PPE Training | No | N/A | Sharp edge → laceration → medical treatment | 2×2=4 | Cut-resistant gloves / edge protection | 1×1 |
+| 029 | Other PPE needed? *(control)* | Sharp edges/materials | Mechanical | PPE Training | No | N/A | Sharp object → cut/puncture → medical treatment | 2×2=4 | Hand protection / deburring controls | 1×1 |
+| 030 | Other PPE needed? *(control)* | Sharp tools | Mechanical | PPE Training | No | N/A | Tool contact → cuts/punctures → medical treatment | 2×2=4 | Tool inspection / tool guards | 1×1 |
+| 031 | Maintain 6ft distancing? | Unable to maintain 6ft | Other Risks | General Safety | Depends | Depends | Close contact → personnel exposed → illness | 1×2=2 | Administrative controls / task sequencing | 1×1 |
+
+**Supersession notice:** Historical Work at Height, Hoisting and Floor Opening “Permit” labels are not independently authorized permit types; they may correspond to governed checklists. The old “six permit types only” comment is superseded by the added Hazardous Chemicals and Materials Permit. Do not use example PTW flags as automatic safety authority.
