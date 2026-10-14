@@ -18,12 +18,12 @@ These are proposed owner *roles*, not assigned named approvers.
 |---|---|---|---|---|---|
 | BR-001 | Task details | Every Safety Plan is associated with an identifiable maintenance task. | SAF-REQ-001, SAF-REQ-032 | Product | Draft; policy approval pending where applicable |
 | BR-002 | Task details | Use applicable task and equipment context. | SAF-REQ-001 | Product | Draft; policy approval pending where applicable |
-| BR-003 | Task details | Authorized users can save incomplete drafts. | SAF-REQ-002, SAF-REQ-023 | Product | Draft; policy approval pending where applicable |
+| BR-003 | Task details | Authorized users can save incomplete drafts. | SAF-REQ-002, SAF-REQ-003, SAF-REQ-016, SAF-REQ-023 | Product | Draft; policy approval pending where applicable |
 | BR-004 | Task details | Changes to assessed task facts are evaluated for safety significance. | SAF-REQ-013 | Safety-governed | Draft; policy approval pending where applicable |
 | BR-005 | Task details | Changes do not silently overwrite approved historical assessments. | SAF-REQ-014, SAF-REQ-028 | System control | Draft; policy approval pending where applicable |
-| BR-006 | Hazard identification | Use approved version-controlled screening question definitions. | SAF-REQ-004, SAF-REQ-021 | Safety-governed | Draft; policy approval pending where applicable |
+| BR-006 | Hazard identification | Use approved version-controlled screening question definitions. | SAF-REQ-004, SAF-REQ-018, SAF-REQ-021, SAF-REQ-026 | Safety-governed | Draft; policy approval pending where applicable |
 | BR-007 | Hazard identification | Distinguish unanswered from negative responses. | SAF-REQ-004, SAF-REQ-023 | Product | Draft; policy approval pending where applicable |
-| BR-008 | Hazard identification | Relevant answers expose appropriate hazards and approved guidance. | SAF-REQ-005, SAF-REQ-007 | Product | Draft; policy approval pending where applicable |
+| BR-008 | Hazard identification | Relevant answers expose appropriate hazards and approved guidance. | SAF-REQ-005, SAF-REQ-007, SAF-REQ-031 | Product | Draft; policy approval pending where applicable |
 | BR-009 | Hazard identification | Support task-specific hazards under an approved review process. | SAF-REQ-006 | Safety-governed | Draft; policy approval pending where applicable |
 | BR-010 | Hazard identification | Carry identified hazards into risk assessment. | SAF-REQ-007 | Product | Draft; policy approval pending where applicable |
 | BR-011 | Hazard identification | Hiding conditional questions does not silently erase answers. | SAF-REQ-022, SAF-REQ-024 | System control | Draft; policy approval pending where applicable |
