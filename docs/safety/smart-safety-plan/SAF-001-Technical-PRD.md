@@ -123,3 +123,22 @@ The [Decision Register](02-decision-register.md) remains authoritative for unres
 
 
 **User workflows and swimlanes:** [SAF-001 User Workflows](SAF-001-User-Workflows.md) — plan creation, review, readiness, handover and controlled template publication.
+
+## 9. Participant acknowledgment — core v0 functional requirements
+
+**Applies to:** SAF-REQ-017 (participant awareness and handover) and SAF-REQ-030 (transition-sensitive requirements). This section refines, rather than replaces, those IDs. Individual acknowledgment is neither Safety Plan approval nor physical-control verification.
+
+| Rule ID | Proposed business rule | Evidence / acceptance |
+|---|---|---|
+| BR-058 | Individually identify engineers named on the applicable Safety Plan. | Unique participant records and role snapshot |
+| BR-059 | Provide named engineers access to the applicable revision before acknowledgment. | Role/access check and revision shown |
+| BR-060 | Record acknowledgment by actor, plan revision and timestamp. | Auditable acknowledgment record |
+| BR-061 | Disallow acknowledging on behalf of another person unless a separately approved delegation procedure exists. | Identity and impersonation rejection tests |
+| BR-062 | Require newly named participants to review and acknowledge according to approved participation policy. | Add-participant journey and policy outcome |
+| BR-063 | Trigger renewed acknowledgment for material revisions where the approved policy requires it. | Revision impact tests |
+| BR-064 | Surface pending acknowledgments to Action Lead and relevant participants. | Task and Safety Plan UI state tests |
+| BR-065 | Keep acknowledgment separate from approval, toolbox-talk attendance and start-work authorization. | Four distinct records and permission tests |
+
+**Candidate policy, not approved:** The Action Lead acknowledges; a one-person task may satisfy its acknowledgment requirement with the Action Lead alone. Other named engineers add personal acknowledgments. Do not automatically stop or re-gate work already in progress simply on acknowledgment changes. The definitive start/restart gate, acknowledgment minimum, participant removals and escalation rules require Safety Authority authorization.
+
+**Acceptance scenarios:** solo engineer; lead plus participants; late joiner; unacknowledged participant; rejected/withdrawn acknowledgment; material revision; handover; already-running task; unauthorized on-behalf-of action; stale acknowledgment against a superseded revision.
