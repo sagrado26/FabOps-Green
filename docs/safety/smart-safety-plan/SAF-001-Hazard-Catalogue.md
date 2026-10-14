@@ -25,26 +25,26 @@ This specification defines the **structure, control and acceptance rules** for t
 
 One screening question may reveal multiple hazards. A hazard may be associated with several questions. Neither a negative response nor a hidden condition automatically proves a hazard is absent.
 
-## 3. Proposed twelve-question baseline slots — source not yet established
+## 3. Twelve source-backed screening questions
 
-**All question texts below remain UNSPECIFIED.** Do not seed these placeholders as live questions, present invented wording as approved, or interpret a blank slot as a negative answer. The authorized safety content owner must supply the exact text and the governing applicability/mapping evidence.
+These are the **verbatim question wordings** supplied in the owner's ISP specification, §4.2 (9 October 2026). The later §14 expressly settles the intended count at **12**. Each response offers **suggested, optional** hazard selections for the assessor's judgment; screening does not itself insert confirmed risk rows or trigger SRB.
 
-| Stable slot | Approved question ID | Approved text | Conditional applicability | Mapping and approval |
-|---|---|---|---|---|
-| Q01 | TBD | **TBD** | TBD | Missing / unapproved |
-| Q02 | TBD | **TBD** | TBD | Missing / unapproved |
-| Q03 | TBD | **TBD** | TBD | Missing / unapproved |
-| Q04 | TBD | **TBD** | TBD | Missing / unapproved |
-| Q05 | TBD | **TBD** | TBD | Missing / unapproved |
-| Q06 | TBD | **TBD** | TBD | Missing / unapproved |
-| Q07 | TBD | **TBD** | TBD | Missing / unapproved |
-| Q08 | TBD | **TBD** | TBD | Missing / unapproved |
-| Q09 | TBD | **TBD** | TBD | Missing / unapproved |
-| Q10 | TBD | **TBD** | TBD | Missing / unapproved |
-| Q11 | TBD | **TBD** | TBD | Missing / unapproved |
-| Q12 | TBD | **TBD** | TBD | Missing / unapproved |
+| # | Screening question — source wording | Worked examples | Suggested register hazards |
+|---|---|---|---|
+| Q1 | Do any of the procedures require specialized training? | Confined Space; QEW; H2; Crane Operator; Stacker/Forklift | Confined Space; Electrical Work where LOTO is required; Combustible/flammable; Hoisting or crane use; Material movements |
+| Q2 | Will task involve use of chemicals or hazardous material? | Chemicals; Hazardous Material | Toxic materials and substances |
+| Q3 | Is other work happening in the area that will impact task? | Nearby maintenance; Other contractors/trades | Other Risks (SIMOPS) |
+| Q4 | Will work involve exposure to falls of 4 feet (1.2m) or greater? | Elevated work platform; Ladder Work | Working at height |
+| Q5 | Will work require barricades (trip floor tile removal, etc)? | Floor tile removal; Temporary obstruction | Floor tile lift / Barricades needed |
+| Q6 | Does any work require LOTO? (Transfer/Validation of Locks or Hardware Installation) | Transfer of Locks; Validation of Locks; Hardware Installation | Electrical Work where LOTO is required |
+| Q7 | Will the work require lifting or hoisting >35lbs/15.9kg? | Manual Lift >35lbs; Hoisting Activity | Ergo Risk; Hoisting or crane use |
+| Q8 | Any abnormal ergonomic concerns (moving heavy items, etc)? | Moving heavy items; Awkward posture; Repetitive movement | Ergo Risk involved with this action |
+| Q9 | Any other concerns about safety? | Unidentified hazard | Other Risks |
+| Q10 | Is there a head injury risk? (Hard hat / Bump cap guidance) | Overhead crane; Falling objects; Overhead modules; Under floor | Falling objects / Safety Netting; Mechanical |
+| Q11 | Other PPE Needed? (Knee pads / Cut-resistant gloves …) | Knee pads; Cut-resistant gloves; Sharp edges; Sharp tools | Ergo Risk; Mechanical |
+| Q12 | Are you able to maintain social distancing of 6ft? | Unable to maintain 6ft | Other Risks |
 
-Before publication, every initial slot must have a unique stable ID, nonempty approved text, answer options, relevant task/equipment context, hazard mappings or documented no-mapping rationale, provenance, content version and approval evidence.
+**Q11 is a control question rather than a hazard question** and should present additional safety controls, not mislabel PPE as a hazard. Q12's operational relevance and active applicability can be configured through the governed catalogue without deleting the source record.
 
 ## 4. Hazard taxonomy and mapping contract
 
@@ -216,7 +216,7 @@ Source: [ExCreate/data.ts](https://github.com/sagrado26/fabpilot-fsm/blob/main/A
 - [Pre-task checks query](https://github.com/sagrado26/fabpilot-fsm/blob/main/App%20files/deployment-domain/queries/src/pre-task-checks.ts) reads active `PreTaskCheckDefinition` records ordered by sort position and code, including their authored question text.
 - [Pre-task checks command](https://github.com/sagrado26/fabpilot-fsm/blob/main/App%20files/deployment-domain/commands/src/pre-task-checks.ts) provides audited configuration changes, permissions and retirement rules.
 - [Pre-task check UI](https://github.com/sagrado26/fabpilot-fsm/blob/main/App%20files/src/active-ui/ex-create/ExCreate/pre-task-checks.tsx) displays one Yes/No question per active definition.
-- **The exact currently active definition records are data-dependent**. Reading source files does not establish the live site's twelve question texts, versions or answers. They must be exported from the authoritative configuration, validated, and linked to a safety approval record.
+- **Important distinction:** Historic FabPilot live active-check records are data-dependent. The supplied ISP specification now establishes the intended **twelve product-baseline question texts**. Live site configurations and publication/sign-off remain separately verifiable.
 
 ### 11.5 Differences to resolve before publishing v0
 
@@ -250,3 +250,17 @@ The Product Owner selected **twelve configurable baseline questions** in SAF-DEC
 **Do not claim a faithful verbatim reconstruction has been completed.** To resolve this discrepancy, identify whether the intended FabOps-Green content should adopt the separate reference tool's eleven questions and add one authorized item, use the four governed checks plus eight approved additions, or use another source document. No choice is made by this draft.
 
 Related decision: [SAF-DEC-001](02-decision-register.md); acceptance HAZ-01 remains blocked.
+
+## 13. Supplied ISP specification — precedence and corrections
+
+The owner-provided *ISP — Integrated Safety Plan: Specification*, dated **9 October 2026**, supersedes earlier FabPilot history for the clean product rebuild where it records later owner decisions. §4.2 supplies the exact 12 questions; §10 supplies 31 example rows. **This closes the missing-wording claim in our earlier draft**; the content still needs governance approval before actual field use.
+
+- **Risk bands:** Low 0–3; Medium 4–6; High 7–12. **SRB trigger remains index ≥6**, separately, meaning 6 is *Medium* and invokes SRB. This differs from legacy ADR-0026 risk-band labels.
+- **Risk roll-up:** highest *individual* hazard S×L; never worst severity multiplied by worst likelihood from different hazards. Source baseline risk is confirmable guidance, not a recorded scored risk until accepted by the assessor. Whether to prefill initial values remains expressly **OPEN** (§14).
+- **Step 2 → Step 3:** screening suggests hazard pills that can be accepted, added to or ignored; Step 3 owns the scored hazard register.
+- **PTW:** §14 (9 October owner correction) establishes an additional **Hazardous Chemicals and Materials Permit**, distinct from Hazardous Space Permit. This overrides the earlier “six only” rule. Hazards including Tin Dust may require the named permit while IPA, N₂ and CO₂ do not under the specified material mapping; Safety Engineers configure mandatory assignments.
+- **Hazardous Space:** owner directs adding this distinct hazard linked to Hazardous Space Permit with configurable checklist/training.
+- **PPE:** ten mandatory code references (M003, M014, M008, M004, M018, M017, M010, M009, M015, M016), not a user preference picker.
+- **Receptor:** owner-retired; exclude from active UI/data contracts.
+
+The source's earlier §3.3 and §10 commentary still speaks of *six locked permits* and four permit hazards; these passages are **superseded** by §14 and must not be treated as current policy. Each example row's original permit label remains historical source data until converted by the later governing mapping.
