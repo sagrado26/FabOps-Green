@@ -131,7 +131,8 @@ Tests are **planned, not executed**.
 
 ## 10. Outstanding sign-offs
 
-- [ ] Obtain exact twelve questions, definitions and applicability from authorized source.
+- [x] Recover the exact twelve screening question wordings and 31 worked examples from the owner-supplied ISP specification (§4.2 and §10).
+- [ ] Validate version-controlled site applicability and approve the baseline for operational use.
 - [ ] Approve each hazard mapping, unwanted event, consequence and baseline control.
 - [ ] Approve question conditional logic, Unknown handling and source precedence.
 - [ ] Verify risk matrix, escalation and interaction with PTW/LOTO/SRB independently.
@@ -230,26 +231,11 @@ Source: [ExCreate/data.ts](https://github.com/sagrado26/fabpilot-fsm/blob/main/A
 
 **Disposition:** Real historical labels/mappings recovered. The twelve controlled screening question contents and approved mapping remain a targeted source-data/approval gap, not twelve undiscovered UI labels.
 
-## 12. Source-authority conflict: original questions versus current FabPilot checks
+## 12. Historical provenance and supersession
 
-**Critical historical correction:** The FabPilot [Green Belt Project Vision](https://github.com/sagrado26/fabpilot-fsm/blob/main/Documentation/GREEN-BELT-PROJECT-VISION.html) contains an explicit **11 September 2026 RETRACTION** of an earlier claim that its governing pre-task schema contained twelve fixed questions. The document says an actual read of `ISP_USER_GUIDE_WORD.docx` found **eleven** Yes/No questions for the separate `safety-plan.asml.com` reference workflow. It also states the applicable FabPilot FRS (`FR-SM-002`) defined **four** governed checks, with `FR-SM-003` applying submission rules. Later active pre-task check definitions became configurable.
+An earlier FabPilot Green Belt document (11 September 2026) retracted an unsupported *then-current implementation* claim of twelve fixed pre-task checks and pointed to four governed operational checks. **That historical correction is valid for its own scope**, but it does not supersede the later owner-supplied ISP specification of **9 October 2026**, which explicitly supplies 12 screening questions in §4.2 and confirms that count in §14.
 
-The four documented FR-SM-002 concepts are:
-
-1. Is a Permit to Work required?
-2. Does a procedure or action plan exist?
-3. Is the person aware of COHE / Way of Working?
-4. Is safety training up to date?
-
-**Text status:** These four lines are normalized renderings of the FRS text quoted in the vision, not a verified exact live question-label export. Their identity is more strongly grounded than the unsubstantiated twelve fixed `q1…q12` claim.
-
-### Baseline reconciliation decision required
-
-The Product Owner selected **twelve configurable baseline questions** in SAF-DEC-001 for FabOps-Green. That is an intentional **new product baseline direction**, but the available historical sources do not establish twelve original verbatim question texts. The eleven-question separate reference tool, eighteen selectable hazard tiles, ten/eleven legacy guide categories and four governed checks cannot be assembled into twelve without an explicit content-authority decision.
-
-**Do not claim a faithful verbatim reconstruction has been completed.** To resolve this discrepancy, identify whether the intended FabOps-Green content should adopt the separate reference tool's eleven questions and add one authorized item, use the four governed checks plus eight approved additions, or use another source document. No choice is made by this draft.
-
-Related decision: [SAF-DEC-001](02-decision-register.md); acceptance HAZ-01 remains blocked.
+Distinguish the datasets: the older eleven-question reference guide, four configurable operational checks, eighteen hazard tiles and the newer twelve-question ISP screen are not interchangeable. For the **FabOps-Green ISP product reconstruction**, the supplied twelve question texts and thirty-one worked example rows are the baseline source. Safety-content applicability and publication approval remain independent governance tasks.
 
 ## 13. Supplied ISP specification — precedence and corrections
 
