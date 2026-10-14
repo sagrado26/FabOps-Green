@@ -97,3 +97,5 @@ Open matters: definitive screening catalogue; risk methodology; approval/acknowl
 
 **Detailed requirements and acceptance scenarios:** [Technical PRD v0](SAF-001-Technical-PRD.md). Neither document independently authorizes equipment maintenance.
 
+
+**User workflows and swimlanes:** [SAF-001 User Workflows](SAF-001-User-Workflows.md) — plan creation, review, readiness, handover and controlled template publication.
