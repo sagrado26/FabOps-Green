@@ -25,7 +25,7 @@ This specification defines the **structure, control and acceptance rules** for t
 
 One screening question may reveal multiple hazards. A hazard may be associated with several questions. Neither a negative response nor a hidden condition automatically proves a hazard is absent.
 
-## 3. Baseline question register — twelve controlled slots
+## 3. Proposed twelve-question baseline slots — source not yet established
 
 **All question texts below remain UNSPECIFIED.** Do not seed these placeholders as live questions, present invented wording as approved, or interpret a blank slot as a negative answer. The authorized safety content owner must supply the exact text and the governing applicability/mapping evidence.
 
@@ -229,3 +229,24 @@ Source: [ExCreate/data.ts](https://github.com/sagrado26/fabpilot-fsm/blob/main/A
 | Hazard risk details | Source supports description and suggested controls, but does not itself certify task-specific risk or implemented controls. | Keep actual initial/residual assessment and control verification separate. |
 
 **Disposition:** Real historical labels/mappings recovered. The twelve controlled screening question contents and approved mapping remain a targeted source-data/approval gap, not twelve undiscovered UI labels.
+
+## 12. Source-authority conflict: original questions versus current FabPilot checks
+
+**Critical historical correction:** The FabPilot [Green Belt Project Vision](https://github.com/sagrado26/fabpilot-fsm/blob/main/Documentation/GREEN-BELT-PROJECT-VISION.html) contains an explicit **11 September 2026 RETRACTION** of an earlier claim that its governing pre-task schema contained twelve fixed questions. The document says an actual read of `ISP_USER_GUIDE_WORD.docx` found **eleven** Yes/No questions for the separate `safety-plan.asml.com` reference workflow. It also states the applicable FabPilot FRS (`FR-SM-002`) defined **four** governed checks, with `FR-SM-003` applying submission rules. Later active pre-task check definitions became configurable.
+
+The four documented FR-SM-002 concepts are:
+
+1. Is a Permit to Work required?
+2. Does a procedure or action plan exist?
+3. Is the person aware of COHE / Way of Working?
+4. Is safety training up to date?
+
+**Text status:** These four lines are normalized renderings of the FRS text quoted in the vision, not a verified exact live question-label export. Their identity is more strongly grounded than the unsubstantiated twelve fixed `q1…q12` claim.
+
+### Baseline reconciliation decision required
+
+The Product Owner selected **twelve configurable baseline questions** in SAF-DEC-001 for FabOps-Green. That is an intentional **new product baseline direction**, but the available historical sources do not establish twelve original verbatim question texts. The eleven-question separate reference tool, eighteen selectable hazard tiles, ten/eleven legacy guide categories and four governed checks cannot be assembled into twelve without an explicit content-authority decision.
+
+**Do not claim a faithful verbatim reconstruction has been completed.** To resolve this discrepancy, identify whether the intended FabOps-Green content should adopt the separate reference tool's eleven questions and add one authorized item, use the four governed checks plus eight approved additions, or use another source document. No choice is made by this draft.
+
+Related decision: [SAF-DEC-001](02-decision-register.md); acceptance HAZ-01 remains blocked.
