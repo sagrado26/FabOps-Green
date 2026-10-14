@@ -7,6 +7,10 @@
 - [User Workflows and Swimlanes](SAF-001-User-Workflows.md) — end-to-end journeys and role handoffs.
 - [Standards & Legal Basis Register](SAF-001-Standards-Legal-Basis.md) — candidate sources and applicability review, not a compliance declaration.
 - [Acknowledgment Rules](SAF-001-Acknowledgment-Rules.md) — BR-058–BR-065 and participation policy decisions.
+- [Process & Business Rules](SAF-001-Process-Business-Rules.md) — cross-functional gates and exceptions.
+- [Data, Integrations & Security](SAF-001-Data-Integration-Security.md) — logical records and trusted interfaces.
+- [Verification & Acceptance](SAF-001-Verification-Acceptance.md) — scenarios and proposed release evidence.
+- [Completion & Approval Register](SAF-001-Completion-Register.md) — coverage and outstanding sign-offs.
 - [Decision Register](02-decision-register.md) — unresolved decisions (working register; not approved).
 - [Source Reconciliation](03-source-reconciliation.md) — historical investigation retained for evidence only.
 - [References](references/README.md) — archival material, not binding requirements.
